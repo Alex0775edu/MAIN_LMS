@@ -1,0 +1,172 @@
+/* =========================================================
+   UTILITIES.CSS
+   Purpose: Reusable helper classes for spacing, layout, colors,
+   buttons, cards, sections, and common UI patterns.
+========================================================= */
+
+/* ---------- Layout ---------- */
+.container-soft {
+  background-color: var(--bg-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.section-padding {
+  padding: var(--space-16) 0;
+}
+
+.section-title {
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Buttons ---------- */
+.btn-lms {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: var(--transition-medium);
+}
+
+.btn-lms-primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-lms-primary:hover {
+  background-color: var(--primary-dark);
+  color: var(--white-color);
+  transform: translateY(-2px);
+}
+
+.btn-lms-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-lms-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* ---------- Cards ---------- */
+.card-lms {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-medium);
+}
+
+.card-lms:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Text Colors ---------- */
+.text-primary-lms { color: var(--primary-color) !important; }
+.text-secondary-lms { color: var(--secondary-color) !important; }
+.text-accent-lms { color: var(--accent-color) !important; }
+.text-muted-lms { color: var(--muted-color) !important; }
+
+/* ---------- Background Colors ---------- */
+.bg-primary-lms { background-color: var(--primary-color) !important; }
+.bg-secondary-lms { background-color: var(--secondary-color) !important; }
+.bg-accent-lms { background-color: var(--accent-color) !important; }
+.bg-light-lms { background-color: var(--bg-soft) !important; }
+
+/* ---------- Flex Utilities ---------- */
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- Grid Utilities ---------- */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+
+/* ---------- Spacing Helpers ---------- */
+.mt-6 { margin-top: var(--space-6); }
+.mb-6 { margin-bottom: var(--space-6); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+
+/* ---------- Alert Utilities ---------- */
+.custom-alert {
+  position: fixed;
+  top: 6.25rem;
+  right: 1.25rem;
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: min(100%, 28rem);
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  background: var(--white-color);
+  color: var(--text-color);
+  animation: slideInRight 0.35s ease both;
+}
+
+.custom-alert.is-hiding {
+  animation: slideOutRight 0.35s ease both;
+}
+
+.custom-alert--success {
+  background: #ecfdf5;
+  border-color: #86efac;
+  color: #065f46;
+}
+
+.custom-alert--warning {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.custom-alert__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.custom-alert__content i {
+  margin-top: 0.15rem;
+}
+
+.custom-alert__message {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.custom-alert__close {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.custom-alert__close:hover,
+.custom-alert__close:focus-visible {
+  opacity: 1;
+  transform: scale(1.05);
+}

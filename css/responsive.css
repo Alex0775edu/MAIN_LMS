@@ -1,0 +1,47 @@
+/* =========================================================
+   RESPONSIVE.CSS
+   Purpose: Contains all responsive breakpoints and layout tweaks.
+   Keeps the design mobile-friendly and scalable.
+========================================================= */
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* ---------- Laptop ---------- */
+@media (max-width: 1199px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .section-padding {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  :root {
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
+  }
+
+  .section-padding {
+    padding: var(--space-8) 0;
+  }
+
+  .btn-lms {
+    width: 100%;
+  }
+}

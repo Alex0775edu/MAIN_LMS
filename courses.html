@@ -1,0 +1,875 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Dhurandhar LMS | Learn Without Limits page for the Dhurandhar Enterprise LMS frontend.">
+    <title>Dhurandhar LMS | Learn Without Limits</title>
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS Architecture -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="light-mode">
+    <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+    <div class="top-announcement-bar">
+        <div class="container">
+            <div class="announcement-inner">
+                <div class="announcement-links">
+                    <a href="mailto:dhurandhar@gmail.com"><i class="fas fa-envelope"></i> dhurandhar@gmail.com</a>
+                    <a href="tel:+919999999999"><i class="fas fa-phone-alt"></i> +91 99999999999</a>
+                    <span><i class="fas fa-clock"></i> Mon - Fri 9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="announcement-actions">
+                    <div class="social-links" aria-label="Social media links">
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN NAVIGATION ==================== -->
+    <nav id="mainNavbar" class="navbar navbar-expand-xl navbar-lms sticky-top" aria-label="Primary navigation">
+        <div class="container">
+            <a href="index.html" class="header-logo">
+              <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
+                    <li class="nav-item"><a class="nav-link " href="index.html" data-nav-link>Home</a></li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link active dropdown-toggle" href="courses.html" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-nav-link>
+                            Courses
+                        </a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="categories.html" data-nav-link>Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learning-paths.html" data-nav-link>Learning Paths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#instructors" data-nav-link>Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing" data-nav-link>Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html" data-nav-link>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-nav-link>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-nav-link>Contact</a></li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal"
+                        aria-label="Open search">
+                        <i class="fas fa-search"></i>
+                    </button>   
+
+                    <div class="dropdown">
+                        <button class="icon-btn" type="button" data-bs-toggle="dropdown"
+                            aria-label="Open notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">.</span>
+                        </button>
+                        <ul class="dropdown-menu notification-menu">
+                            <li>
+                                <h6 class="dropdown-header">Notifications</h6>
+                            </li>
+                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
+                                        class="fas fa-graduation-cap"></i><span><strong>New Course
+                                            Available</strong><small>AI for Beginners is now live.</small></span></a>
+                            </li>
+                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
+                                        class="fas fa-calendar-check"></i><span><strong>Assignment
+                                            Reminder</strong><small>Your project is due tomorrow.</small></span></a>
+                            </li>
+                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
+                                        class="fas fa-video"></i><span><strong>Live Class Today</strong><small>Web
+                                            Development at 6:00 PM.</small></span></a></li>
+                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
+                                        class="fas fa-certificate"></i><span><strong>Certificate
+                                            Ready</strong><small>Your UI/UX certificate is available.</small></span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a class="btn btn-outline-lms" href="auth/login.html">Login</a>
+                    <a class="btn btn-solid-lms" href="auth/register.html">Register</a>
+                    <button class="icon-btn mobile-menu-toggle d-xl-none" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== SEARCH MODAL ==================== -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content search-modal">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="searchModalLabel">Search Courses</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search courses, instructors, or skills" name="search_courses_instructors_or_skills">
+                    </div>
+                    <div class="search-section">
+                        <h6>Recent Searches</h6>
+                        <div class="tag-list">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">React Basics</span>
+                            <span class="tag">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="search-section">
+                        <h6>Popular Categories</h6>
+                        <div class="tag-list">
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Cyber Security</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Cloud Computing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MOBILE OFFCANVAS MENU ==================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+       
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-list">
+                <li><a class="mobile-link active" href="index.html">Home</a></li>
+                <li><a class="mobile-link" href="courses.html">Courses</a></li>
+                <li><a class="mobile-link" href="categories.html">Categories</a></li>
+                <li><a class="mobile-link" href="learning-paths.html">Learning Paths</a></li>
+                <li><a class="mobile-link" href="#instructors">Instructors</a></li>
+                <li><a class="mobile-link" href="#pricing">Pricing</a></li>
+                <li><a class="mobile-link" href="about.html">About</a></li>
+                <li><a class="mobile-link" href="contact.html">Contact</a></li>
+            </ul>
+            <div class="offcanvas-actions">
+                <a class="btn btn-solid-lms w-100 mb-2" href="auth/login.html">Login</a>
+                <a class="btn btn-outline-lms w-100" href="auth/register.html">Register</a>
+            </div>
+            <div class="social-links mobile-socials" aria-label="Social media links">
+                <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <section id="courses" class="featured-courses-section">
+        <div class="container">
+            <div class="section-heading" data-aos="fade-up">
+                <span class="section-badge">Featured Learning</span>
+                <div class="section-heading-row">
+                    <div>
+                        <h2>Featured Courses</h2>
+                        <p>Choose from high-impact courses curated for modern careers and practical skill growth.</p>
+                    </div>
+                    
+                </div>
+            </div>
+      
+            <div class="filter-tabs course-filter-tabs" data-aos="fade-up" aria-label="Course filter tabs">
+                <button class="filter-tab active" type="button" data-filter="all">All</button>
+                <button class="filter-tab" type="button" data-filter="trending">Trending</button>
+                <button class="filter-tab" type="button" data-filter="bestseller">Bestseller</button>
+                <button class="filter-tab" type="button" data-filter="new">New</button>
+                <button class="filter-tab" type="button" data-filter="programming">Programming</button>
+                <button class="filter-tab" type="button" data-filter="development">Development</button>
+                <button class="filter-tab" type="button" data-filter="ai">AI</button>
+                <button class="filter-tab" type="button" data-filter="design">Design</button>
+                <button class="filter-tab" type="button" data-filter="business">Business</button>
+                <button class="filter-tab" type="button" data-filter="free">Free</button>
+                <button class="filter-tab" type="button" data-filter="premium">Premium</button>
+            </div>
+
+            <div class="course-grid">
+                <article class="course-card" data-category="development premium trending bestseller" data-aos="fade-up">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/html & css.jpg"
+                            alt="Complete HTML5 and CSS3 Bootcamp course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Web Development</span>
+                            <span class="badge badge-dark">Beginner</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Complete HTML5 &amp; CSS3 Bootcamp</h3>
+                        <p>Build modern responsive websites with layout, animation, and best practices.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Aarav Sharma</strong>
+                                <small>UI Engineer</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.9 (2.3k)</span>
+                            <span><i class="fas fa-users"></i> 18.5k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12h</span>
+                            <span><i class="fas fa-book-open"></i> 48 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹4,999</span>
+                                <span class="old-price">₹7,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="development premium trending" data-aos="fade-up"
+                    data-aos-delay="50">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/javascript.jpg"
+                            alt="JavaScript from beginner to advanced course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Programming</span>
+                            <span class="badge badge-dark">Intermediate</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>JavaScript From Beginner to Advanced</h3>
+                        <p>Master modern JavaScript with DOM, async programming, APIs, and practical projects.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Neha Kapoor</strong>
+                                <small>Frontend Developer</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.8 (1.8k)</span>
+                            <span><i class="fas fa-users"></i> 15.2k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 15h</span>
+                            <span><i class="fas fa-book-open"></i> 62 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹3,999</span>
+                                <span class="old-price">₹6,499</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="development premium new" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/bootstrap1.jpg" alt="Bootstrap 5 Masterclass course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Frontend</span>
+                            <span class="badge badge-dark">New</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Bootstrap 5 Masterclass</h3>
+                        <p>Create polished interfaces quickly using Bootstrap components, utilities, and themes.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Rahul Verma</strong>
+                                <small>Design Systems Mentor</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.7 (1.2k)</span>
+                            <span><i class="fas fa-users"></i> 11.8k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8h</span>
+                            <span><i class="fas fa-book-open"></i> 36 lessons</span>
+                            <span><i class="fas fa-globe"></i> Hindi</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹2,499</span>
+                                <span class="old-price">₹4,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="development premium trending" data-aos="fade-up"
+                    data-aos-delay="150">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/python.jpg"
+                            alt="Python programming masterclass course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Programming</span>
+                            <span class="badge badge-dark">Beginner</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Python Programming Masterclass</h3>
+                        <p>Learn Python from fundamentals to practical automation and backend projects.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Priya Mehta</strong>
+                                <small>Python Specialist</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.9 (3.0k)</span>
+                            <span><i class="fas fa-users"></i> 22.4k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 18h</span>
+                            <span><i class="fas fa-book-open"></i> 72 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹5,499</span>
+                                <span class="old-price">₹8,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="development premium" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/node.jpg"
+                            alt="Node.js and Express essentials course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Backend</span>
+                            <span class="badge badge-dark">Intermediate</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Node.js &amp; Express Essentials</h3>
+                        <p>Build scalable backend services with modern APIs and structured application design.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Riya Sinha</strong>
+                                <small>Backend Engineer</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.8 (980)</span>
+                            <span><i class="fas fa-users"></i> 9.1k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 10h</span>
+                            <span><i class="fas fa-book-open"></i> 42 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹4,299</span>
+                                <span class="old-price">₹6,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="programming premium" data-aos="fade-up"
+                    data-aos-delay="250">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/django.jpg" alt="Django web development course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Backend</span>
+                            <span class="badge badge-dark">Intermediate</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Django Web Development</h3>
+                        <p>Learn rapid web development using Django, templates, authentication, and deployment.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Aditya Rao</strong>
+                                <small>Python Web Mentor</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.8 (840)</span>
+                            <span><i class="fas fa-users"></i> 8.3k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 11h</span>
+                            <span><i class="fas fa-book-open"></i> 44 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹3,799</span>
+                                <span class="old-price">₹5,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="programming premium" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/DSA1.jpg" alt="Java programming with DSA course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Programming</span>
+                            <span class="badge badge-dark">Advanced</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Java Programming with DSA</h3>
+                        <p>Speed up your coding interviews and backend development skills with Java and DSA.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Ananya Joshi</strong>
+                                <small>DSA Coach</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.7 (730)</span>
+                            <span><i class="fas fa-users"></i> 7.4k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 14h</span>
+                            <span><i class="fas fa-book-open"></i> 58 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹3,599</span>
+                                <span class="old-price">₹6,199</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="programming free" data-aos="fade-up" data-aos-delay="350">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/C2.jpg" alt="C programming fundamentals course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Programming</span>
+                            <span class="badge badge-dark">Free</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>C Programming Fundamentals</h3>
+                        <p>Learn core coding logic and memory concepts with beginner-friendly C exercises.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Vikram Sethi</strong>
+                                <small>Systems Mentor</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.6 (610)</span>
+                            <span><i class="fas fa-users"></i> 6.5k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 7h</span>
+                            <span><i class="fas fa-book-open"></i> 30 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">Free</span>
+                                <span class="old-price"></span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="ai premium trending" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/ai icon (3).jpeg"
+                            alt="Artificial intelligence fundamentals course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">AI</span>
+                            <span class="badge badge-dark">Beginner</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Artificial Intelligence Fundamentals</h3>
+                        <p>Understand AI concepts, real-world applications, and responsible model usage.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Sonal Bhatia</strong>
+                                <small>AI Researcher</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.8 (1.4k)</span>
+                            <span><i class="fas fa-users"></i> 12.7k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 13h</span>
+                            <span><i class="fas fa-book-open"></i> 56 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹4,799</span>
+                                <span class="old-price">₹7,499</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card" data-category="security premium new" data-aos="fade-up"
+                    data-aos-delay="450">
+                    <div class="course-media">
+                        <img src="assets/images/courses/project img/cyber icon.jpeg" alt="Cyber security professional course preview">
+                        <div class="course-badges">
+                            <span class="badge badge-primary">Cyber Security</span>
+                            <span class="badge badge-dark">New</span>
+                        </div>
+                        <button class="icon-btn course-wishlist" type="button" aria-label="Add to wishlist"><i
+                                class="far fa-heart"></i></button>
+                        <button class="icon-btn course-share" type="button" aria-label="Share course"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="course-body">
+                        <h3>Cyber Security Professional</h3>
+                        <p>Build practical skills in security fundamentals, incident response, and threat awareness.</p>
+                        <div class="course-instructor">
+                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <div>
+                                <strong>Manav Das</strong>
+                                <small>Security Analyst</small>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <span><i class="fas fa-star"></i> 4.8 (892)</span>
+                            <span><i class="fas fa-users"></i> 8.8k</span>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16h</span>
+                            <span><i class="fas fa-book-open"></i> 60 lessons</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                        </div>
+                        <div class="course-footer">
+                            <div>
+                                <span class="price">₹5,199</span>
+                                <span class="old-price">₹7,999</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-preview" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#courseModal">Preview</button>
+                                <a class="btn btn-enroll" href="index.html">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content course-modal-content">
+                <div class="modal-body p-0">
+                    <img src="assets/images/courses/course-01.svg" alt="Featured course preview"
+                        class="course-modal-image">
+                    <div class="course-modal-body">
+                        <h3 id="courseModalLabel">Learn with Expert Guidance</h3>
+                        <p>Get practical training, project-based learning, and lifetime access to premium course
+                            materials.</p>
+                        <div class="course-modal-details">
+                            <span><i class="fas fa-graduation-cap"></i> Instructor: Aarav Sharma</span>
+                            <span><i class="far fa-clock"></i> 12 Hours</span>
+                            <span><i class="fas fa-book-open"></i> 48 Lessons</span>
+                            <span><i class="fas fa-signal"></i> Intermediate</span>
+                            <span><i class="fas fa-globe"></i> English</span>
+                            <span><i class="fas fa-star"></i> 4.9 Rating</span>
+                        </div>
+                        <ul class="course-outcomes">
+                            <li>Hands-on projects and guided practice</li>
+                            <li>Study materials and downloadable resources</li>
+                            <li>Certificate of completion</li>
+                        </ul>
+                        <a class="btn btn-enroll w-100" href="index.html">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+ <!-- ==================== FOOTER ==================== -->
+<footer class="footer-section">
+  <!-- Main Footer -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Column 1: About Company -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="footer-about">
+            <a href="index.html" class="footer-logo">
+              <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
+            </a>
+            <p class="footer-description">
+              Empowering learners worldwide with 5,000+ professional courses. 
+              Learn from industry experts and transform your career with 
+              globally recognized certificates.
+            </p>
+            <!-- Social Media Icons -->
+            <div class="footer-social">
+              <a href="https://www.facebook.com/" class="social-icon" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/" class="social-icon" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/" class="social-icon" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/" class="social-icon" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/" class="social-icon" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="footer-links">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-menu">
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+              <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+              <li><a href="#courses"><i class="fas fa-chevron-right"></i> All Courses</a></li>
+              <li><a href="#instructors"><i class="fas fa-chevron-right"></i> Instructors</a></li>
+              <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+              <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Column 3: Top Categories -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-links">
+            <h5 class="footer-title">Top Categories</h5>
+            <ul class="footer-menu">
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Data Science & AI</a></li>
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Mobile App Development</a></li>
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Digital Marketing</a></li>
+              <li><a href="index.html"><i class="fas fa-chevron-right"></i> Cyber Security</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Column 4: Contact Info & Newsletter -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="footer-contact">
+            <h5 class="footer-title">Get In Touch</h5>
+            <!-- Contact Details -->
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 Learning Street, Tech Park<br>San Francisco, CA 94105</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>99999999<br>9999999999</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>dhurandhar@gmail.com<br>support@dhurandhar.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat - Sun: 10:00 AM - 4:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Row -->
+      <div class="newsletter-row" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <h5 class="newsletter-title">
+              <i class="fas fa-paper-plane me-2"></i>Subscribe to Our Newsletter
+            </h5>
+            <p class="newsletter-text">Get the latest updates, new courses, and exclusive offers straight to your inbox.</p>
+          </div>
+          <div class="col-lg-7">
+            <form class="newsletter-form" id="newsletterForm" method="post" novalidate>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter your email address" required name="enter_your_email_address">
+                <button class="btn btn-subscribe" type="submit">
+                  <i class="fas fa-paper-plane me-2"></i>Subscribe Now
+                </button>
+              </div>
+              <small class="newsletter-note">
+                <i class="fas fa-lock me-1"></i>We respect your privacy. No spam, ever!
+              </small>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="copyright">
+            © 2026 <strong>Dhurandhar LMS</strong>. All Rights Reserved. 
+            Crafted with <i class="fas fa-heart text-danger"></i> for learners worldwide.
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <span class="divider">|</span>
+            <a href="terms-and-conditions.html">Terms of Service</a>
+            <span class="divider">|</span>
+            <a href="faq.html">FAQ</a>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- scroll to top button -->
+    <button type="button" id="scrollTopBtn" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"><i
+            class="fas fa-arrow-up"></i></button>
+
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
