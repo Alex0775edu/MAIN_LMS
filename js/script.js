@@ -147,7 +147,7 @@
   const initNavigation = () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navbar-lms .nav-link[data-nav-link], .mobile-link');
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'auth/register.html';
 
     navLinks.forEach((link) => {
       const href = link.getAttribute('href') || '';

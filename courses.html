@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Dhurandhar LMS | Learn Without Limits page for the Dhurandhar Enterprise LMS frontend.">
+    <meta name="description"
+        content="Dhurandhar LMS | Learn Without Limits page for the Dhurandhar Enterprise LMS frontend.">
     <title>Dhurandhar LMS | Learn Without Limits</title>
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 
-<body class="light-mode">
+<body>
     <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
     <div class="top-announcement-bar">
         <div class="container">
@@ -37,10 +38,14 @@
                 </div>
                 <div class="announcement-actions">
                     <div class="social-links" aria-label="Social media links">
-                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -51,138 +56,127 @@
     <nav id="mainNavbar" class="navbar navbar-expand-xl navbar-lms sticky-top" aria-label="Primary navigation">
         <div class="container">
             <a href="index.html" class="header-logo">
-              <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
+                <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
-                    <li class="nav-item"><a class="nav-link " href="index.html" data-nav-link>Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-nav-link>Home</a></li>
                     <li class="nav-item dropdown mega-dropdown">
-                        <a class="nav-link active dropdown-toggle" href="courses.html" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="courses.html" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false" data-nav-link>
                             Courses
                         </a>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="row g-3">
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-code"></i>
+                                        <span>
+                                            <strong>Web Development</strong>
+                                            <small>Build responsive websites and apps.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>
+                                            <strong>Programming Languages</strong>
+                                            <small>Master Python, JavaScript, C++, and more.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>
+                                            <strong>Mobile Development</strong>
+                                            <small>Create iOS and Android applications.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-robot"></i>
+                                        <span>
+                                            <strong>Artificial Intelligence</strong>
+                                            <small>Explore AI, machine learning, and automation.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>
+                                            <strong>Data Science</strong>
+                                            <small>Learn analytics, statistics, and visualization.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>
+                                            <strong>Cyber Security</strong>
+                                            <small>Protect systems and understand ethical hacking.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>
+                                            <strong>Cloud Computing</strong>
+                                            <small>Build on AWS, Azure, and Google Cloud.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-paint-brush"></i>
+                                        <span>
+                                            <strong>UI/UX Design</strong>
+                                            <small>Craft intuitive and polished digital products.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <span>
+                                            <strong>Digital Marketing</strong>
+                                            <small>Grow brands with strategy and content.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <a class="mega-item" href="courses.html">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span>
+                                            <strong>Business</strong>
+                                            <small>Improve leadership, finance, and productivity.</small>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="categories.html" data-nav-link>Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="learning-paths.html" data-nav-link>Learning Paths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html" data-nav-link>Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="#instructors" data-nav-link>Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing" data-nav-link>Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html" data-nav-link>Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html" data-nav-link>About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html" data-nav-link>Contact</a></li>
                 </ul>
-
-                <div class="navbar-actions">
-                    <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal"
-                        aria-label="Open search">
-                        <i class="fas fa-search"></i>
-                    </button>   
-
-                    <div class="dropdown">
-                        <button class="icon-btn" type="button" data-bs-toggle="dropdown"
-                            aria-label="Open notifications">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge">.</span>
-                        </button>
-                        <ul class="dropdown-menu notification-menu">
-                            <li>
-                                <h6 class="dropdown-header">Notifications</h6>
-                            </li>
-                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
-                                        class="fas fa-graduation-cap"></i><span><strong>New Course
-                                            Available</strong><small>AI for Beginners is now live.</small></span></a>
-                            </li>
-                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
-                                        class="fas fa-calendar-check"></i><span><strong>Assignment
-                                            Reminder</strong><small>Your project is due tomorrow.</small></span></a>
-                            </li>
-                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
-                                        class="fas fa-video"></i><span><strong>Live Class Today</strong><small>Web
-                                            Development at 6:00 PM.</small></span></a></li>
-                            <li><a class="dropdown-item notification-item" href="notifications.html"><i
-                                        class="fas fa-certificate"></i><span><strong>Certificate
-                                            Ready</strong><small>Your UI/UX certificate is available.</small></span></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a class="btn btn-outline-lms" href="auth/login.html">Login</a>
-                    <a class="btn btn-solid-lms" href="auth/register.html">Register</a>
-                    <button class="icon-btn mobile-menu-toggle d-xl-none" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open mobile menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
+                <a class="btn btn-outline-lms" href="auth/login.html">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-solid-lms" href="auth/register.html">Register</a>
             </div>
+        </div>
         </div>
     </nav>
-
-    <!-- ==================== SEARCH MODAL ==================== -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content search-modal">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="searchModalLabel">Search Courses</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="search-input-group">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Search courses, instructors, or skills" name="search_courses_instructors_or_skills">
-                    </div>
-                    <div class="search-section">
-                        <h6>Recent Searches</h6>
-                        <div class="tag-list">
-                            <span class="tag">Web Development</span>
-                            <span class="tag">React Basics</span>
-                            <span class="tag">UI/UX Design</span>
-                        </div>
-                    </div>
-                    <div class="search-section">
-                        <h6>Popular Categories</h6>
-                        <div class="tag-list">
-                            <span class="tag">Data Science</span>
-                            <span class="tag">Cyber Security</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">Cloud Computing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== MOBILE OFFCANVAS MENU ==================== -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
-       
-        <div class="offcanvas-body">
-            <ul class="mobile-nav-list">
-                <li><a class="mobile-link active" href="index.html">Home</a></li>
-                <li><a class="mobile-link" href="courses.html">Courses</a></li>
-                <li><a class="mobile-link" href="categories.html">Categories</a></li>
-                <li><a class="mobile-link" href="learning-paths.html">Learning Paths</a></li>
-                <li><a class="mobile-link" href="#instructors">Instructors</a></li>
-                <li><a class="mobile-link" href="#pricing">Pricing</a></li>
-                <li><a class="mobile-link" href="about.html">About</a></li>
-                <li><a class="mobile-link" href="contact.html">Contact</a></li>
-            </ul>
-            <div class="offcanvas-actions">
-                <a class="btn btn-solid-lms w-100 mb-2" href="auth/login.html">Login</a>
-                <a class="btn btn-outline-lms w-100" href="auth/register.html">Register</a>
-            </div>
-            <div class="social-links mobile-socials" aria-label="Social media links">
-                <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
 
     <section id="courses" class="featured-courses-section">
         <div class="container">
@@ -229,7 +223,7 @@
                         <h3>Complete HTML5 &amp; CSS3 Bootcamp</h3>
                         <p>Build modern responsive websites with layout, animation, and best practices.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/boy.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Aarav Sharma</strong>
                                 <small>UI Engineer</small>
@@ -276,7 +270,7 @@
                         <h3>JavaScript From Beginner to Advanced</h3>
                         <p>Master modern JavaScript with DOM, async programming, APIs, and practical projects.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/woman.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Neha Kapoor</strong>
                                 <small>Frontend Developer</small>
@@ -322,7 +316,7 @@
                         <h3>Bootstrap 5 Masterclass</h3>
                         <p>Create polished interfaces quickly using Bootstrap components, utilities, and themes.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/boy1.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Rahul Verma</strong>
                                 <small>Design Systems Mentor</small>
@@ -369,7 +363,7 @@
                         <h3>Python Programming Masterclass</h3>
                         <p>Learn Python from fundamentals to practical automation and backend projects.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/woman1.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Priya Mehta</strong>
                                 <small>Python Specialist</small>
@@ -416,7 +410,7 @@
                         <h3>Node.js &amp; Express Essentials</h3>
                         <p>Build scalable backend services with modern APIs and structured application design.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/woman2.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Riya Sinha</strong>
                                 <small>Backend Engineer</small>
@@ -462,7 +456,7 @@
                         <h3>Django Web Development</h3>
                         <p>Learn rapid web development using Django, templates, authentication, and deployment.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/boy.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Aditya Rao</strong>
                                 <small>Python Web Mentor</small>
@@ -508,7 +502,7 @@
                         <h3>Java Programming with DSA</h3>
                         <p>Speed up your coding interviews and backend development skills with Java and DSA.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/woman.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Ananya Joshi</strong>
                                 <small>DSA Coach</small>
@@ -553,7 +547,7 @@
                         <h3>C Programming Fundamentals</h3>
                         <p>Learn core coding logic and memory concepts with beginner-friendly C exercises.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/boy1.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Vikram Sethi</strong>
                                 <small>Systems Mentor</small>
@@ -600,7 +594,7 @@
                         <h3>Artificial Intelligence Fundamentals</h3>
                         <p>Understand AI concepts, real-world applications, and responsible model usage.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-02.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/woman1.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Sonal Bhatia</strong>
                                 <small>AI Researcher</small>
@@ -646,7 +640,7 @@
                         <h3>Cyber Security Professional</h3>
                         <p>Build practical skills in security fundamentals, incident response, and threat awareness.</p>
                         <div class="course-instructor">
-                            <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
+                            <img src="assets/images/instructors/boy.jpg" alt="Instructor avatar">
                             <div>
                                 <strong>Manav Das</strong>
                                 <small>Security Analyst</small>
@@ -708,7 +702,233 @@
         </div>
     </div>
 
- 
+       <!-- ==================== LEARNING PATHS SECTION ==================== -->
+        <section class="learning-paths-section" id="learning-paths" aria-labelledby="learningPathsHeading">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="section-badge">Learning Paths</span>
+                    <div class="section-heading-row">
+                        <div>
+                            <h2 id="learningPathsHeading">Professional roadmap cards to guide your career</h2>
+                            <p>Choose a structured path for frontend, backend, full stack, Python, AI, or cyber security
+                                mastery.</p>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="learning-paths-grid">
+                    <article class="learning-path-card featured-path" data-aos="fade-up">
+                        <img src="assets/images/courses/project img/fullstake.png"
+                            alt="Full Stack Development roadmap illustration">
+                        <div class="path-card-body">
+                            <div class="path-card-badges">
+                                <span class="path-badge">Most Popular Career Path</span>
+                                <span class="path-badge path-badge-soft">Premium</span>
+                            </div>
+                            <h3>Full Stack Developer</h3>
+                            <p>Build complete web products with frontend, backend, databases, deployment, and testing.
+                            </p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Estimated Duration:</strong> 6 Months</li>
+                                <li><strong>Courses Included:</strong> 12</li>
+                                <li><strong>Projects:</strong> 6 Portfolio Projects</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> Web Developer, Product Engineer</li>
+                                <li><strong>Average Salary:</strong> ₹8L - ₹16L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="Full Stack Developer Roadmap"
+                                    data-steps="Understand HTML, CSS, and JavaScript fundamentals; Build responsive interfaces; Learn backend APIs and databases; Deploy real applications; Launch portfolio-ready projects">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="learning-path-card" data-aos="fade-up" data-aos-delay="50">
+                        <img src="assets/images/courses/project img/frontend.jpg"
+                            alt="Frontend Developer roadmap illustration">
+                        <div class="path-card-body">
+                            <h3>Frontend Developer</h3>
+                            <p>Create polished interfaces and modern experiences with the latest frontend tools.</p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Beginner</li>
+                                <li><strong>Estimated Duration:</strong> 3 Months</li>
+                                <li><strong>Courses Included:</strong> 8</li>
+                                <li><strong>Projects:</strong> 4 UI Projects</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> UI Engineer, Frontend Developer</li>
+                                <li><strong>Average Salary:</strong> ₹5L - ₹12L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="Frontend Developer Roadmap"
+                                    data-steps="Learn modern HTML and CSS; Master responsive layouts; Add JavaScript interactivity; Practice component design; Build a complete frontend portfolio">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="learning-path-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/images/courses/project img/backend.jpg"
+                            alt="Backend Developer roadmap illustration">
+                        <div class="path-card-body">
+                            <h3>Backend Developer</h3>
+                            <p>Master server-side logic, databases, APIs, and secure application architecture.</p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Estimated Duration:</strong> 4 Months</li>
+                                <li><strong>Courses Included:</strong> 9</li>
+                                <li><strong>Projects:</strong> 5 API Projects</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> Backend Engineer, API Developer</li>
+                                <li><strong>Average Salary:</strong> ₹6L - ₹14L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="Backend Developer Roadmap"
+                                    data-steps="Begin with programming fundamentals; Learn server-side frameworks; Connect databases and APIs; Build secure services; Deploy scalable solutions">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="learning-path-card" data-aos="fade-up" data-aos-delay="150">
+                        <img src="assets/images/courses/project img/python_dev.jpg"
+                            alt="Python Developer roadmap illustration">
+                        <div class="path-card-body">
+                            <h3>Python Developer</h3>
+                            <p>Advance your Python skills for automation, backend work, analysis, and AI projects.</p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Beginner</li>
+                                <li><strong>Estimated Duration:</strong> 4 Months</li>
+                                <li><strong>Courses Included:</strong> 10</li>
+                                <li><strong>Projects:</strong> 5 Python Projects</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> Automation Engineer, Python Developer</li>
+                                <li><strong>Average Salary:</strong> ₹4L - ₹10L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="Python Developer Roadmap"
+                                    data-steps="Start with syntax and logic; Learn core libraries; Build scripts and APIs; Explore data and automation; Create a portfolio project">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="learning-path-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/images/courses/project img/ai_eng.jpg" alt="AI Engineer roadmap illustration">
+                        <div class="path-card-body">
+                            <h3>AI Engineer</h3>
+                            <p>Explore machine learning, model design, deployment, and practical AI product building.
+                            </p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Advanced</li>
+                                <li><strong>Estimated Duration:</strong> 8 Months</li>
+                                <li><strong>Courses Included:</strong> 14</li>
+                                <li><strong>Projects:</strong> 7 AI Projects</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> AI Engineer, ML Engineer</li>
+                                <li><strong>Average Salary:</strong> ₹10L - ₹25L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="AI Engineer Roadmap"
+                                    data-steps="Build math and Python skills; Learn machine learning foundations; Create models and pipelines; Deploy AI features; Ship a capstone solution">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="learning-path-card" data-aos="fade-up" data-aos-delay="250">
+                        <img src="assets/images/courses/project img/cyber_security.jpg"
+                            alt="Cyber Security Specialist roadmap illustration">
+                        <div class="path-card-body">
+                            <h3>Cyber Security Specialist</h3>
+                            <p>Protect systems, understand threats, and build a strong security-first mindset.</p>
+                            <ul class="path-card-list">
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Estimated Duration:</strong> 5 Months</li>
+                                <li><strong>Courses Included:</strong> 11</li>
+                                <li><strong>Projects:</strong> 5 Security Labs</li>
+                                <li><strong>Certificate:</strong> Yes</li>
+                                <li><strong>Career Opportunities:</strong> Security Analyst, SOC Specialist</li>
+                                <li><strong>Average Salary:</strong> ₹7L - ₹15L</li>
+                            </ul>
+                            <div class="path-card-actions">
+                                <button class="btn btn-outline-primary btn-ripple" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#roadmapModal" data-title="Cyber Security Specialist Roadmap"
+                                    data-steps="Learn networking and security fundamentals; Practice threat detection; Study incident response; Use defensive tools; Complete lab-based projects">View
+                                    Roadmap</button>
+                                <a class="btn btn-enroll btn-ripple" href="auth/register.html">Start Learning</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="coursePreviewModal" tabindex="-1" aria-labelledby="coursePreviewModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content preview-modal-content">
+                    <div class="modal-body p-0">
+                        <img id="previewModalImage" src="assets/images/courses/course-01.svg" alt="Course preview"
+                            class="preview-modal-image">
+                        <div class="preview-modal-body">
+                            <h3 id="coursePreviewModalLabel">Course Preview</h3>
+                            <p id="previewModalOverview">Course overview will appear here.</p>
+                            <div class="preview-modal-grid">
+                                <div>
+                                    <h4>Learning Outcomes</h4>
+                                    <ul id="previewModalOutcomes"></ul>
+                                </div>
+                                <div>
+                                    <h4>Course Features</h4>
+                                    <ul id="previewModalFeatures"></ul>
+                                </div>
+                            </div>
+                            <div class="preview-modal-footer">
+                                <div>
+                                    <p class="preview-modal-instructor"><strong>Instructor:</strong> <span
+                                            id="previewModalInstructor">Instructor</span></p>
+                                    <p class="preview-modal-requirements"><strong>Requirements:</strong> <span
+                                            id="previewModalRequirements">Requirements</span></p>
+                                </div>
+                                <div class="preview-modal-price-wrap">
+                                    <span id="previewModalPrice">₹0</span>
+                                    <a class="btn btn-enroll btn-ripple" href="auth/register.html">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="roadmapModal" tabindex="-1" aria-labelledby="roadmapModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content roadmap-modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="roadmapModalLabel">Learning Roadmap</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="roadmap-timeline" id="roadmapTimeline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
  <!-- ==================== FOOTER ==================== -->
 <footer class="footer-section">
   <!-- Main Footer -->
