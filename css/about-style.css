@@ -1,0 +1,378 @@
+/* ==================== ABOUT PAGE STYLES ==================== */
+
+:root {
+  --primary: #2563EB;
+  --secondary: #7C3AED;
+  --accent: #06B6D4;
+  --white: #ffffff;
+  --light-bg: #f8f9fa;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.1);
+  --radius: 18px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ==================== PAGE HEADER ==================== */
+.about-header {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #ffffff 100%);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-header::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: rgba(37, 99, 235, 0.04);
+  border-radius: 50%;
+  top: -120px;
+  right: -80px;
+}
+
+.about-header::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(124, 58, 237, 0.04);
+  border-radius: 50%;
+  bottom: -80px;
+  left: -60px;
+}
+
+.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+  color: var(--primary);
+}
+
+/* ==================== STORY SECTION ==================== */
+.story-image-wrapper {
+  position: relative;
+}
+
+.main-image {
+  transition: transform 0.5s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 20px 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ==================== MISSION CARDS ==================== */
+.mission-card {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: left 0.5s ease;
+}
+
+.mission-card:hover::before {
+  left: 0;
+}
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.mission-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: var(--primary);
+  transition: all 0.4s ease;
+}
+
+.vision-icon {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.05));
+  color: var(--secondary);
+}
+
+.mission-card:hover .mission-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ==================== CORE VALUES ==================== */
+.value-card {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md) !important;
+  border-color: var(--primary);
+}
+
+.value-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0f4ff, #e8eeff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  transform: rotate(360deg);
+}
+
+/* ==================== STATISTICS ==================== */
+.stats-section {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.counter {
+  font-size: 3rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==================== TEAM SECTION ==================== */
+.team-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.team-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.1);
+}
+
+.team-social {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  transition: bottom 0.4s ease;
+}
+
+.team-card:hover .team-social {
+  bottom: 0;
+}
+
+.team-social a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ==================== TIMELINE ==================== */
+.timeline-card {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.timeline-year {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+/* ==================== TESTIMONIALS ==================== */
+.testimonial-card {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ==================== PARTNERS ==================== */
+.partners-section img {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.partners-section img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ==================== CTA ==================== */
+.about-cta {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* ==================== FOOTER ==================== */
+.footer-section {
+  background: #0f172a;
+  color: #94a3b8;
+}
+
+.footer-bottom {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: white;
+}
+
+.footer-bottom-links .divider {
+  color: #475569;
+  margin: 0 12px;
+}
+
+.copyright {
+  font-size: 0.9rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 991px) {
+  .about-header {
+    padding: 60px 0 40px;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .experience-badge {
+    bottom: -10px;
+    right: -10px;
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .team-image {
+    height: 220px;
+  }
+  
+  .mission-card {
+    padding: 2rem !important;
+  }
+  
+  .stats-section .counter {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .experience-badge {
+    display: none;
+  }
+  
+  .team-image {
+    height: 200px;
+  }
+}
