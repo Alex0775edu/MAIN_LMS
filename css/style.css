@@ -2395,6 +2395,7 @@ body {
   flex-direction: column;
   gap: 0.75rem;
   padding: 1rem 1rem 1.1rem;
+
 }
 
 .course-body h3 {
@@ -2413,6 +2414,10 @@ body {
   color: var(--muted-color);
   font-size: 0.94rem;
   line-height: 1.65;
+}
+
+.course-card1{
+  margin-top: 20px;
 }
 
 .course-instructor {
@@ -2902,7 +2907,7 @@ body {
     margin: 0 6px;
   }
 }
-/*contact.html start*/
+/*contact.php start*/
 
 /* Page Header */
 .page-header {
@@ -3142,7 +3147,7 @@ body {
   }
 }
 
-/* contact.html css end */
+/* contact.php css end */
 
 .ripple-effect {
   position: absolute;

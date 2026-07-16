@@ -101,23 +101,23 @@ document.addEventListener('DOMContentLoaded', () => {
     switch (action) {
       case 'open-notifications':
         showToast('Opening notifications.', 'info');
-        window.setTimeout(() => openPage('notifications.html'), 220);
+        window.setTimeout(() => openPage('notifications.php'), 220);
         break;
       case 'open-messages':
         showToast('Opening messages.', 'info');
-        window.setTimeout(() => openPage('messages.html'), 220);
+        window.setTimeout(() => openPage('messages.php'), 220);
         break;
       case 'join-live-session':
         showToast(`Opening ${sessionTitle} in the course room.`, 'success');
-        window.setTimeout(() => openPage('course-player.html'), 220);
+        window.setTimeout(() => openPage('course-player.php'), 220);
         break;
       case 'set-reminder':
         showToast(`Reminder saved for ${sessionTitle}.`, 'info');
-        window.setTimeout(() => openPage('calendar.html'), 220);
+        window.setTimeout(() => openPage('calendar.php'), 220);
         break;
       case 'download-certificate':
         showToast(`Preparing ${certificateTitle} for download.`, 'success');
-        window.setTimeout(() => openPage('downloads.html'), 220);
+        window.setTimeout(() => openPage('downloads.php'), 220);
         break;
       case 'share-certificate':
         if (navigator.share) {
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     showToast(`Searching for "${query}".`, 'info');
-    openPage(`courses.html?search=${encodeURIComponent(query)}`);
+    openPage(`courses.php?search=${encodeURIComponent(query)}`);
   });
 
   window.addEventListener('scroll', () => {

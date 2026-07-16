@@ -147,13 +147,13 @@
   const initNavigation = () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navbar-lms .nav-link[data-nav-link], .mobile-link');
-    const currentPath = window.location.pathname.split('/').pop() || 'auth/register.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'auth/register.php';
 
     navLinks.forEach((link) => {
       const href = link.getAttribute('href') || '';
       const targetPath = href.split('/').pop();
-      const isHomeLink = href === 'index.html' || href === '/' || href === '#';
-      const isActive = (isHomeLink && currentPath === 'index.html') || (!isHomeLink && targetPath && currentPath === targetPath);
+      const isHomeLink = href === 'index.php' || href === '/' || href === '#';
+      const isActive = (isHomeLink && currentPath === 'index.php') || (!isHomeLink && targetPath && currentPath === targetPath);
       link.classList.toggle('active', Boolean(isActive));
     });
 
@@ -252,7 +252,7 @@
       if (category && category !== 'All Categories') {
         params.set('category', category);
       }
-      window.location.href = `courses.html?${params.toString()}`;
+      window.location.href = `courses.php?${params.toString()}`;
     });
 
     newsletterForm?.addEventListener('submit', (event) => {

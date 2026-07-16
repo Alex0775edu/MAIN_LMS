@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dhurandhar LMS | Bookmarks page for saved courses and learning resources.">
+    <title>Dhurandhar LMS | Bookmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/site-shell.css">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.php" class="brand"><span class="brand-mark">D</span><span class="brand-text">Dhurandhar</span></a>
+                <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
+            </div>
+            <nav class="sidebar-nav" aria-label="Student dashboard navigation">
+                <a href="dashboard.php" class="nav-item"><i class="fas fa-home"></i><span>Dashboard</span></a>
+                <a href="my-courses.php" class="nav-item"><i class="fas fa-book-open"></i><span>My Courses</span></a>
+                <a href="continue-learning.php" class="nav-item"><i class="fas fa-play-circle"></i><span>Continue Learning</span></a>
+                <a href="learning-paths.php" class="nav-item"><i class="fas fa-route"></i><span>Learning Paths</span></a>
+                <a href="assignments.php" class="nav-item"><i class="fas fa-clipboard-list"></i><span>Assignments</span></a>
+                <a href="quizzes.php" class="nav-item"><i class="fas fa-brain"></i><span>Quizzes</span></a>
+                <a href="certificates.php" class="nav-item"><i class="fas fa-award"></i><span>Certificates</span></a>
+                <a href="downloads.php" class="nav-item"><i class="fas fa-download"></i><span>Downloads</span></a>
+                <a href="wishlist.php" class="nav-item"><i class="fas fa-heart"></i><span>Wishlist</span></a>
+                <a href="bookmarks.php" class="nav-item active"><i class="fas fa-bookmark"></i><span>Bookmarks</span></a>
+                <a href="calendar.php" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a>
+                <a href="messages.php" class="nav-item"><i class="fas fa-envelope"></i><span>Messages</span></a>
+                <a href="notifications.php" class="nav-item"><i class="fas fa-bell"></i><span>Notifications</span></a>
+                <a href="achievements.php" class="nav-item"><i class="fas fa-medal"></i><span>Achievements</span></a>
+                <a href="leaderboard.php" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                <a href="profile.php" class="nav-item"><i class="fas fa-user-circle"></i><span>Profile</span></a>
+                <a href="settings.php" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                <a href="help-center.php" class="nav-item"><i class="fas fa-life-ring"></i><span>Help Center</span></a>
+                <a href="logout.php" class="nav-item"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+            </nav>
+        </aside>
+        <div class="main-panel">
+            <header class="topbar">
+                <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open sidebar"><i class="fas fa-bars"></i></button>
+                <div><p class="topbar-label">Student Dashboard</p><h1>Bookmarks</h1></div>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-btn" aria-label="Notifications" data-dashboard-action="open-notifications"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button type="button" class="icon-btn" aria-label="Messages" data-dashboard-action="open-messages"><i class="fas fa-envelope"></i></button>
+                    <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+                </div>
+            </header>
+            <main class="content-area">
+                <section class="card-section" data-aos="fade-up">
+                    <div class="section-heading">
+                        <div><span class="section-badge">Saved Items</span><h3>Resources you bookmarked</h3></div>
+                        <a href="courses.php" class="text-link">Browse courses</a>
+                    </div>
+                    <div class="course-list">
+                        <article class="course-card">
+                            <img src="assets/images/courses/course-01.svg" alt="UI/UX design course thumbnail">
+                            <div class="course-card-body">
+                                <h4>UI/UX Design Basics</h4>
+                                <p>Short lessons, practical design systems, and portfolio-ready exercises.</p>
+                                <div class="course-card-footer">
+                                    <span>Saved yesterday</span>
+                                    <a href="course-details.php" class="btn btn-sm btn-primary">Open</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+<script src="js/site-shell.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

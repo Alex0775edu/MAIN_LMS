@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Course Player | Student Module page for the Dhurandhar Enterprise LMS frontend.">
+  <title>Course Player | Student Module</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/student-module.css">
+    <link rel="stylesheet" href="css/site-shell.css">
+</head>
+<body>
+  <div class="student-shell">
+    <div class="page-wrapper">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <a class="brand" href="index.php"><span class="brand-mark">D</span><span>Dhurandhar LMS</span></a>
+          <button type="button" class="icon-btn mobile-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="sidebar-search"><i class="fas fa-search"></i><input type="text" placeholder="Search" aria-label="Search" name="search"></div>
+        <nav class="sidebar-nav" aria-label="Student module navigation">
+          <a class="nav-item" href="my-courses.php"><i class="fas fa-book-open"></i><span>My Courses</span></a>
+          <a class="nav-item active" href="course-player.php"><i class="fas fa-play-circle"></i><span>Course Player</span></a>
+          <a class="nav-item" href="continue-learning.php"><i class="fas fa-forward"></i><span>Continue Learning</span></a>
+          <a class="nav-item" href="assignments.php"><i class="fas fa-clipboard-list"></i><span>Assignments</span></a>
+          <a class="nav-item" href="quiz.php"><i class="fas fa-brain"></i><span>Quiz</span></a>
+          <a class="nav-item" href="certificates.php"><i class="fas fa-award"></i><span>Certificates</span></a>
+          <a class="nav-item" href="wishlist.php"><i class="fas fa-heart"></i><span>Wishlist</span></a>
+          <a class="nav-item" href="downloads.php"><i class="fas fa-download"></i><span>Downloads</span></a>
+          <a class="nav-item" href="profile.php"><i class="fas fa-user-circle"></i><span>Profile</span></a>
+          <a class="nav-item" href="settings.php"><i class="fas fa-cog"></i><span>Settings</span></a>
+          <a class="nav-item" href="notifications.php"><i class="fas fa-bell"></i><span>Notifications</span></a>
+          <a class="nav-item" href="messages.php"><i class="fas fa-envelope"></i><span>Messages</span></a>
+          <a class="nav-item" href="calendar.php"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a>
+          <a class="nav-item" href="help-center.php"><i class="fas fa-life-ring"></i><span>Help Center</span></a>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <button type="button" class="icon-btn mobile-toggle" aria-label="Open sidebar"><i class="fas fa-bars"></i></button>
+          <div>
+            <p class="text-muted mb-1">Course Player</p>
+            <h1>Frontend System Design</h1>
+          </div>
+          <div class="topbar-actions">
+            <div class="search-pill"><i class="fas fa-search"></i><input type="text" placeholder="Search lessons" aria-label="Search lessons" name="search_lessons"></div>
+            <button type="button" class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i><span class="badge">1</span></button>
+            <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+            <div class="user-pill">
+              <img src="https://i.pravatar.cc/100?img=21" alt="Student avatar">
+              <div><strong>Aisha Khan</strong><small>Learning</small></div>
+            </div>
+          </div>
+        </header>
+        <section class="page" data-aos="fade-up">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><span>Home</span><span>/</span><span>Courses</span><span>/</span><span class="text-primary">Frontend System Design</span></nav>
+          <div class="page-header">
+            <div>
+              <h2>Professional Learning Interface</h2>
+              <p>Follow lessons, review resources, and stay engaged with the class community.</p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button type="button" class="btn btn-outline" data-toast="Saved for later">Save Lesson</button>
+              <button type="button" class="btn btn-primary" data-toast="Marked as completed">Mark as Completed</button>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <div class="card card-body">
+                <div class="video-shell">
+                  <div class="text-center">
+                    <i class="fas fa-play-circle fa-4x mb-3"></i>
+                    <h4>Responsive Video Player Placeholder</h4>
+                    <p class="text-white-50">Lesson 04 • Designing scalable UI architecture</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div><h4 class="fw-bold mb-1">Lesson 04: Component boundaries</h4><p class="text-muted mb-0">Progress 38% • Estimated time left 12 min</p></div>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-outline btn-sm">Previous</button>
+                    <button type="button" class="btn btn-primary btn-sm">Next</button>
+                  </div>
+                </div>
+                <div class="progress-track mt-3"><div class="progress-bar" data-progress="38%" style="width: 0"></div></div>
+              </div>
+              <div class="card card-body mt-3">
+                <ul class="nav nav-tabs" id="lessonTabs" role="tablist">
+                  <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview" type="button">Overview</button></li>
+                  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#resources" type="button">Resources</button></li>
+                  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#discussion" type="button">Discussion</button></li>
+                  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#qa" type="button">Q&A</button></li>
+                  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews" type="button">Reviews</button></li>
+                </ul>
+                <div class="tab-content mt-3">
+                  <div class="tab-pane fade show active" id="overview">
+                    <p class="text-muted">Understand how to map user flows into maintainable components and identify where state should live in the architecture.</p>
+                  </div>
+                  <div class="tab-pane fade" id="resources"><div class="list-stack">
+                    <div class="stack-item"><span><i class="fas fa-file-pdf me-2"></i>Design checklist.pdf</span><button type="button" class="btn btn-outline btn-sm">Download</button></div>
+                    <div class="stack-item"><span><i class="fas fa-code me-2"></i>Starter repo.zip</span><button type="button" class="btn btn-outline btn-sm">Download</button></div>
+                  </div></div>
+                  <div class="tab-pane fade" id="discussion"><div class="chat-bubble">A student shared a useful pattern for state-driven layout decisions.</div></div>
+                  <div class="tab-pane fade" id="qa"><div class="chat-bubble">Q: Why does this component need a local state store? A: To keep the UI resilient and easier to test.</div></div>
+                  <div class="tab-pane fade" id="reviews"><div class="chat-bubble">“The pacing is excellent and the examples are practical.” — Maya</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-body">
+                <h4 class="fw-bold mb-3">Course Playlist</h4>
+                <div class="playlist-list">
+                  <div class="playlist-item"><strong>01. Welcome to the course</strong><br><span class="text-muted small">12 min</span></div>
+                  <div class="playlist-item"><strong>02. User journeys and goals</strong><br><span class="text-muted small">15 min</span></div>
+                  <div class="playlist-item active"><strong>03. Component boundaries</strong><br><span class="text-muted small">18 min</span></div>
+                  <div class="playlist-item"><strong>04. Data and state flow</strong><br><span class="text-muted small">20 min</span></div>
+                </div>
+              </div>
+              <div class="card card-body mt-3">
+                <h4 class="fw-bold mb-3">Notes</h4>
+                <div class="notes-list">
+                  <div class="notes-item"><strong>Key takeaway</strong><p class="mb-0 mt-2 text-muted">Separate display logic from state transitions to keep the course maintainable.</p></div>
+                  <div class="notes-item"><strong>Action item</strong><p class="mb-0 mt-2 text-muted">Sketch a component tree for your next project.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button type="button" class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast-container"></div>
+<script src="js/site-shell.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/student-module.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
