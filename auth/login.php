@@ -77,8 +77,8 @@
           <div class="auth-card" data-aos="fade-left" data-aos-duration="900">
             <div class="auth-card__header">
               <a class="auth-logo" href="../index.php">
-                <span class="auth-logo__mark">L</span>
-                <span>LearningEdge</span>
+                <span class="auth-logo__mark">D</span>
+                <span>Dhurandhar LMS</span>
               </a>
               <small class="auth-caption">Enterprise LMS authentication</small>
             </div>

@@ -141,7 +141,7 @@ include('header.php');
                         <div class="course-instructor">
                             <img src="assets/images/instructors/boy1.jpg" alt="Instructor avatar">
                             <div>
-                                <strong>Rahul Verma</strong>
+                                <strong>Aditya Rajak</strong>
                                 <small>Design Systems Mentor</small>
                             </div>
                         </div>

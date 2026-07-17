@@ -3,7 +3,7 @@
 include('header.php');
 ?>
     <!-- ==================== HERO SECTION ==================== -->
-    <header id="home" class="hero-section">
+    <header id="home" class="hero-section bg-white">
         <div class="hero-bg"></div>
         <div class="container hero-container">
             <div class="row align-items-center g-5">
@@ -51,20 +51,20 @@ include('header.php');
                             </div>
                         </div>
 
-                        <div class="stats-grid">
-                            <div class="stat-card" data-counter="50000" data-suffix="+">
+                        <div class="stats-grid ">
+                            <div class="stat-card bg-white" data-counter="50000" data-suffix="+">
                                 <strong class="counter-value">0</strong>
                                 <span>Students</span>
                             </div>
-                            <div class="stat-card" data-counter="1200" data-suffix="+">
+                            <div class="stat-card bg-white" data-counter="1200" data-suffix="+">
                                 <strong class="counter-value">0</strong>
                                 <span>Courses</span>
                             </div>
-                            <div class="stat-card" data-counter="250" data-suffix="+">
+                            <div class="stat-card bg-white" data-counter="250" data-suffix="+">
                                 <strong class="counter-value">0</strong>
                                 <span>Instructors</span>
                             </div>
-                            <div class="stat-card" data-counter="98" data-suffix="%">
+                            <div class="stat-card bg-white" data-counter="98" data-suffix="%">
                                 <strong class="counter-value">0</strong>
                                 <span>Completion</span>
                             </div>
@@ -141,7 +141,7 @@ include('header.php');
             <section class="section-block">
                 <div class="container">
                     <div class="grid-cards">
-                        <article class="course-card course-card1" data-category="programming free" data-aos="fade-up-right"
+                        <article class="course-card course-card1 bg-white" data-category="programming free" data-aos="fade-up-right"
                             data-aos-delay="100">
                             <div class="course-body">
                                 <h3>C Programming Fundamentals</h3>
@@ -149,7 +149,7 @@ include('header.php');
 
                             </div>
                         </article>
-                        <article class="course-card course-card1" data-category="programming free" data-aos="flip-left"
+                        <article class="course-card course-card1 bg-white" data-category="programming free" data-aos="flip-left"
                             data-aos-delay="200">
                             <div class="course-body">
                                 <h3>Web Development</h3>
@@ -158,7 +158,7 @@ include('header.php');
 
                             </div>
                         </article>
-                        <article class="course-card course-card1" data-category="programming free" data-aos="fade-down-left"
+                        <article class="course-card course-card1 bg-white" data-category="programming free" data-aos="fade-down-left"
                             data-aos-delay="300">
                             <div class="course-body">
                                 <h3>App Development</h3>
@@ -204,7 +204,7 @@ include('header.php');
 
                 <div class="course-grid">
 
-                    <article class="course-card" data-category="programming free" data-aos="fade-up"
+                    <article class="course-card bg-white" data-category="programming free" data-aos="fade-up"
                         data-aos-delay="350">
                         <div class="course-media">
                             <img src="assets/images/courses/project img/C2.jpg"
@@ -252,7 +252,7 @@ include('header.php');
                     </article>
 
 
-                    <article class="course-card" data-category="development premium trending" data-aos="fade-up"
+                    <article class="course-card bg-white" data-category="development premium trending" data-aos="fade-up"
                         data-aos-delay="50">
                         <div class="course-media">
                             <img src="assets/images/courses/project img/javascript.jpg"
@@ -299,7 +299,7 @@ include('header.php');
                         </div>
                     </article>
 
-                    <article class="course-card" data-category="development premium new" data-aos="fade-up"
+                    <article class="course-card bg-white" data-category="development premium new" data-aos="fade-up"
                         data-aos-delay="100">
                         <div class="course-media">
                             <img src="assets/images/courses/project img/bootstrap1.jpg"
@@ -319,7 +319,7 @@ include('header.php');
                             <div class="course-instructor">
                                 <img src="assets/images/instructors/instructor-01.svg" alt="Instructor avatar">
                                 <div>
-                                    <strong>Rahul Verma</strong>
+                                    <strong>Aditya Rajak</strong>
                                     <small>Design Systems Mentor</small>
                                 </div>
                             </div>
@@ -346,7 +346,7 @@ include('header.php');
                         </div>
                     </article>
 
-                    <article class="course-card" data-category="development premium trending" data-aos="fade-up"
+                    <article class="course-card bg-white" data-category="development premium trending" data-aos="fade-up"
                         data-aos-delay="150">
                         <div class="course-media">
                             <img src="assets/images/courses/project img/python.jpg"

@@ -1139,21 +1139,21 @@ body {
 }
 
 
-.hero-section {
+.hero-section1 {
   position: relative;
   padding: 5rem 0 2.5rem;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(7, 89, 133, 0.04));
+ /* background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(7, 89, 133, 0.04));*/
 }
 
-.hero-bg {
+/* .hero-bg {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
   background-size: 36px 36px;
   mask-image: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
   pointer-events: none;
-}
+} */
 
 .hero-container {
   position: relative;

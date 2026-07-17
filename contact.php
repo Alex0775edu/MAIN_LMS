@@ -1,22 +1,23 @@
 ﻿﻿<?php
 include('header.php');
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+}
 // Initialize variables for form data and messages
 $name = $email = $phone = $subject = $message = '';
 $nameerr = $emailerr = $phoneerr = $subjecterr = $messageerr = $agreeerr = '';
 $success_message = $error_message = '';
 $form_submitted = false;
 
-// Database connection
 $con = mysqli_connect(
     "localhost",
     "Aditya",
     "Aditya@0775",
-    "dhurandhar_lms"
+    "dhurandhar_lms",
 );
 
 if(!$con){
-    die("Database Connection Failed : " . mysqli_connect_error());
+    die("Database Connection Failed : " .mysqli_connect_error());
 }
 
 // Check if contact table exists, if not create it
@@ -46,7 +47,7 @@ if(mysqli_num_rows($table_result) == 0) {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
     
     if(!mysqli_query($con, $create_table)){
-        $error_message = 'Database setup error: ' . mysqli_error($con);
+        $error_message = 'Database setup error: ' .mysqli_error($con);
     }
 }
 
@@ -63,7 +64,6 @@ if(isset($_POST['submit'])){
     
     // Validation flags
     $isValid = true;
-    
     // Validate Full Name
     if (empty($name)) {
         $nameerr = 'Full name is required.';

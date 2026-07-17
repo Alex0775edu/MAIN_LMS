@@ -42,18 +42,18 @@ include('header.php');
   </section>
 
   <!-- ==================== FEATURED INSTRUCTORS ==================== -->
-  <section class="featured-instructors py-5">
+  <!-- <section class="featured-instructors py-5">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-down">
         <h2 class="fw-bold">Featured Instructors</h2>
         <p class="text-muted">Our top-rated instructors loved by students worldwide</p>
       </div>
       <div class="row g-4">
-        <!-- Featured Instructor 1 -->
+        <!-- Featured Instructor 1 
         <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="100">
           <div class="instructor-card bg-white rounded-4 shadow-sm overflow-hidden text-center">
             <div class="instructor-image-wrapper">
-              <img src="assets/images/instructors/aditya.jpg" alt="Dr. Robert Chen" class="instructor-image">
+              <img src="assets/images/instructors/aditya.jpg"  class="instructor-image">
               <div class="instructor-social">
                 <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
@@ -76,7 +76,7 @@ include('header.php');
           </div>
         </div>
 
-        <!-- Featured Instructor 2 -->
+        <!-- Featured Instructor 2 
         <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="200">
           <div class="instructor-card bg-white rounded-4 shadow-sm overflow-hidden text-center">
             <div class="instructor-image-wrapper">
@@ -103,7 +103,7 @@ include('header.php');
           </div>
         </div>
 
-        <!-- Featured Instructor 3 -->
+        <!-- Featured Instructor 3 
         <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="300">
           <div class="instructor-card bg-white rounded-4 shadow-sm overflow-hidden text-center">
             <div class="instructor-image-wrapper">
@@ -130,7 +130,7 @@ include('header.php');
           </div>
         </div>
 
-        <!-- Featured Instructor 4 -->
+        <!-- Featured Instructor 4 
         <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="400">
           <div class="instructor-card bg-white rounded-4 shadow-sm overflow-hidden text-center">
             <div class="instructor-image-wrapper">
@@ -158,7 +158,7 @@ include('header.php');
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ==================== ALL INSTRUCTORS GRID ==================== -->
   <section class="all-instructors py-5 bg-light">

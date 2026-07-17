@@ -28,7 +28,7 @@
         <div class="topbar-actions">
           <label class="search-pill"><i class="fas fa-search"></i><input type="text" placeholder="Search content" data-search name="search_content"></label>
           <button type="button" class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i></button>
-          <div class="user-pill"><img src="https://i.pravatar.cc/100?img=15" alt="Instructor avatar"><div><strong>Rahul Verma</strong><small>Senior instructor</small></div></div>
+          <div class="user-pill"><img src="https://i.pravatar.cc/100?img=15" alt="Instructor avatar"><div><strong>Aditya Rajak</strong><small>Senior instructor</small></div></div>
         </div>
       </header>
       <div class="content-area">
@@ -43,7 +43,7 @@
               <button type="button" class="btn btn-primary" data-toast="Progress saved">Save</button>
             </div>
           </div>
-          <div class="row g-3"><div class="col-lg-4"><div class="card-surface text-center"><img src="https://i.pravatar.cc/150?img=15" alt="Instructor avatar" class="mx-auto rounded-circle mb-3" width="110"><h4 class="fw-bold">Rahul Verma</h4><p class="text-muted">Senior Product Engineer • Instructor</p></div></div><div class="col-lg-8"><div class="card-surface"><h4 class="fw-bold mb-3">Bio</h4><p class="text-muted">Rahul helps professionals build practical, modern capabilities with a human-centered teaching style.</p><div class="row g-3"><div class="col-md-6"><label class="form-label">Skills</label><input class="form-control" value="React, AI, Design systems" name="field"></div><div class="col-md-6"><label class="form-label">Experience</label><input class="form-control" value="10+ years" name="field"></div></div></div></div></div>
+          <div class="row g-3"><div class="col-lg-4"><div class="card-surface text-center"><img src="https://i.pravatar.cc/150?img=15" alt="Instructor avatar" class="mx-auto rounded-circle mb-3" width="110"><h4 class="fw-bold">Aditya Rajak</h4><p class="text-muted">Senior Product Engineer • Instructor</p></div></div><div class="col-lg-8"><div class="card-surface"><h4 class="fw-bold mb-3">Bio</h4><p class="text-muted">Rahul helps professionals build practical, modern capabilities with a human-centered teaching style.</p><div class="row g-3"><div class="col-md-6"><label class="form-label">Skills</label><input class="form-control" value="React, AI, Design systems" name="field"></div><div class="col-md-6"><label class="form-label">Experience</label><input class="form-control" value="10+ years" name="field"></div></div></div></div></div>
         </section>
       </div>
     </main>

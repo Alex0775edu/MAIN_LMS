@@ -22,7 +22,7 @@ include('header.php');
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
           <div class="story-image-wrapper">
-            <img src="https://img.freepik.com/free-vector/online-learning-isometric-concept_1284-17947.jpg" 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEnbOpOFJT6UpCdOkJ3IrznFUW1hzHcgsD6FjOy5FM6g&s=10" 
                  alt="Our Story" 
                  class="img-fluid rounded-4 shadow-lg main-image">
             <div class="floating-card experience-badge">

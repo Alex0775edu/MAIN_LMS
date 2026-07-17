@@ -28,7 +28,7 @@
         <div class="topbar-actions">
           <label class="search-pill"><i class="fas fa-search"></i><input type="text" placeholder="Search content" data-search name="search_content"></label>
           <button type="button" class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i></button>
-          <div class="user-pill"><img src="https://i.pravatar.cc/100?img=15" alt="Instructor avatar"><div><strong>Rahul Verma</strong><small>Senior instructor</small></div></div>
+          <div class="user-pill"><img src="https://i.pravatar.cc/100?img=15" alt="Instructor avatar"><div><strong>Aditya Rajak</strong><small>Senior instructor</small></div></div>
         </div>
       </header>
       <div class="content-area">

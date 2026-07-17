@@ -68,7 +68,7 @@
               <h3 class="fw-bold mb-3">Instructor</h3>
               <div class="d-flex align-items-center gap-3">
                 <img src="https://i.pravatar.cc/120?img=15" alt="Instructor portrait" class="rounded-circle" width="70">
-                <div><strong>Rahul Verma</strong><p class="text-muted mb-0">Senior Product Engineer</p></div>
+                <div><strong>Aditya Rajak</strong><p class="text-muted mb-0">Senior Product Engineer</p></div>
               </div>
             </div>
           </div>

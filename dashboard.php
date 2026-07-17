@@ -234,7 +234,7 @@
                                             <span>Lesson 8</span>
                                         </div>
                                         <h4>Master Responsive Design</h4>
-                                        <p>Instructor: Rahul Verma</p>
+                                        <p>Instructor: Aditya Rajak</p>
                                         <div class="course-card-footer">
                                             <span>Last accessed 2h ago</span>
                                             <a href="course-player.php" class="btn btn-sm btn-primary">Resume</a>
@@ -282,7 +282,7 @@
                                     <tbody>
                                         <tr>
                                             <td><strong>UI/UX Design Basics</strong></td>
-                                            <td>Rahul Verma</td>
+                                            <td>Aditya Rajak</td>
                                             <td><div class="mini-progress"><div data-progress="84"></div></div></td>
                                             <td><span class="badge badge-success">Active</span></td>
                                             <td>Ready</td>

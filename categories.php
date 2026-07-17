@@ -212,20 +212,17 @@ include('header.php');
             <div class="stats-row" data-aos="fade-up">
                 <div class="stat-box">
                     <strong class="counter-value" data-counter="12">+2k</strong>
-                    <span>Total Categories</span>
+                    <span class="text-black">Total Categories</span>
                 </div>
                 <div class="stat-box">
                     <strong class="counter-value" data-counter="1800">+1.8k</strong>
-                    <span>Total Courses</span>
+                    <span class="text-black">Total Courses</span>
                 </div>
                 <div class="stat-box">
                     <strong class="counter-value" data-counter="120000">+120k</strong>
-                    <span>Total Students</span>
+                    <span class="text-black">Total Students</span>
                 </div>
-                <div class="stat-box">
-                    <strong class="counter-value" data-counter="320">+20</strong>
-                    <span>Expert Instructors</span>
-                </div>
+               
             </div>
         </div>
     </section>
