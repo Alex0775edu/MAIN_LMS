@@ -14,7 +14,7 @@
 /* ---------- Laptop ---------- */
 @media (max-width: 1199px) {
   .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -26,7 +26,11 @@
   }
 
   .section-padding {
-    padding: var(--space-12) 0;
+    padding: 3rem 0;
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
   }
 }
 
@@ -38,10 +42,16 @@
   }
 
   .section-padding {
-    padding: var(--space-8) 0;
+    padding: 2.25rem 0;
   }
 
-  .btn-lms {
+  .btn-lms,
+  .btn-outline-lms,
+  .btn-solid-lms {
     width: 100%;
+  }
+
+  .advanced-search-grid {
+    grid-template-columns: 1fr;
   }
 }

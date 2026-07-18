@@ -16,7 +16,9 @@
 }
 
 /* ---------- Buttons ---------- */
-.btn-lms {
+.btn-lms,
+.btn-outline-lms,
+.btn-solid-lms {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,15 +41,29 @@
   transform: translateY(-2px);
 }
 
-.btn-lms-outline {
+.btn-lms-outline,
+.btn-outline-lms {
   background-color: transparent;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 
-.btn-lms-outline:hover {
+.btn-lms-outline:hover,
+.btn-outline-lms:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
+}
+
+.btn-solid-lms {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-solid-lms:hover {
+  background-color: var(--primary-dark);
+  color: var(--white-color);
+  transform: translateY(-2px);
 }
 
 /* ---------- Cards ---------- */

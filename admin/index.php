@@ -1,5 +1,25 @@
 ﻿<?php
-  include('sidebar.php');
+include('sidebar.php');
+
+$stats = [];
+
+
+$user_result = mysqli_query($con, "SELECT COUNT(*) as count FROM users");
+$stats['total_users'] = mysqli_fetch_assoc($user_result)['count'];
+
+
+$student_result = mysqli_query($con, "SELECT COUNT(*) as count FROM users WHERE role='student'");
+$stats['students'] = mysqli_fetch_assoc($student_result)['count'];
+
+$instructor_result = mysqli_query($con, "SELECT COUNT(*) as count FROM users WHERE role='instructor'");
+$stats['instructors'] = mysqli_fetch_assoc($instructor_result)['count'];
+
+
+$admin_result = mysqli_query($con, "SELECT COUNT(*) as count FROM users WHERE role='admin'");
+$stats['admins'] = mysqli_fetch_assoc($admin_result)['count'];
+
+$recent_users_query = "SELECT fullname, email, role, created_at FROM users ORDER BY created_at DESC LIMIT 5";
+$recent_users = mysqli_query($con, $recent_users_query);
 ?>
     <main class="main-panel">
       <header class="topbar">
@@ -12,7 +32,7 @@
           <button type="button" class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i><span class="badge">4</span></button>
           <button type="button" class="icon-btn" aria-label="Toggle theme" data-theme-toggle><i class="fas fa-moon"></i></button>
           <div class="user-pill"><img src="https://i.pravatar.cc/100?img=15" alt="Admin avatar">
-            <div><strong>Aditya Rajak</strong><small>Super Admin</small></div>
+            <div><strong><?php echo htmlspecialchars($admin_data['fullname'] ?? 'Admin'); ?></strong><small><?php echo ucfirst($admin_data['role'] ?? 'Admin'); ?></small></div>
           </div>
         </div>
       </header>
@@ -30,7 +50,7 @@
             <div class="card">
               <div class="page-header">
                 <div>
-                  <h2>Welcome back, Super Admin</h2>
+                  <h2>Welcome back, <?php echo htmlspecialchars($admin_data['fullname'] ?? 'Super Admin'); ?></h2>
                   <p>Monitor learning operations, system stability, and institutional growth from one command center.</p>
                 </div>
                 <div class="d-flex gap-2"><button type="button" class="btn btn-outline" data-toast="Quick action queued">Quick Actions</button><button type="button" class="btn btn-primary" data-toast="Dashboard refreshed">Refresh</button></div>
@@ -38,40 +58,52 @@
               <div class="stat-grid">
                 <div class="stat-card">
                   <div class="stat-icon"><i class="fas fa-users"></i></div>
-                  <h3 class="fw-bold">24,812</h3>
+                  <h3 class="fw-bold"><?php echo number_format($stats['total_users']); ?></h3>
+                  <p class="text-muted mb-0">Total Users</p>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                  <h3 class="fw-bold"><?php echo number_format($stats['students']); ?></h3>
                   <p class="text-muted mb-0">Students</p>
                 </div>
                 <div class="stat-card">
                   <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                  <h3 class="fw-bold">318</h3>
+                  <h3 class="fw-bold"><?php echo number_format($stats['instructors']); ?></h3>
                   <p class="text-muted mb-0">Instructors</p>
                 </div>
                 <div class="stat-card">
-                  <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                  <h3 class="fw-bold">1,240</h3>
-                  <p class="text-muted mb-0">Courses</p>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
-                  <h3 class="fw-bold">₹8.4M</h3>
-                  <p class="text-muted mb-0">Revenue</p>
+                  <div class="stat-icon"><i class="fas fa-user-shield"></i></div>
+                  <h3 class="fw-bold"><?php echo number_format($stats['admins']); ?></h3>
+                  <p class="text-muted mb-0">Admins</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-6">
             <div class="card">
-              <div class="page-header">
-                <div>
-                  <h3 class="fw-bold mb-1">Revenue overview</h3>
-                  <p class="mb-0">Track growth across the learning ecosystem.</p>
-                </div><a href="analytics.php" class="btn btn-outline">Open analytics</a>
-              </div><canvas id="revenueChart" height="180"></canvas>
+              <h3 class="fw-bold mb-3">Recent Registrations</h3>
+              <div class="list-stack">
+                <?php if(mysqli_num_rows($recent_users) > 0): ?>
+                  <?php while($user = mysqli_fetch_assoc($recent_users)): ?>
+                  <div class="stack-row">
+                    <div>
+                      <strong><?php echo htmlspecialchars($user['fullname']); ?></strong>
+                      <small class="text-muted d-block"><?php echo htmlspecialchars($user['email']); ?></small>
+                    </div>
+                    <span class="chip <?php echo $user['role'] == 'admin' ? 'chip-danger' : ($user['role'] == 'instructor' ? 'chip-info' : 'chip-primary'); ?>">
+                      <?php echo ucfirst($user['role']); ?>
+                    </span>
+                  </div>
+                  <?php endwhile; ?>
+                <?php else: ?>
+                  <p class="text-muted">No recent registrations</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="card">
-              <h3 class="fw-bold mb-3">System health</h3>
+              <h3 class="fw-bold mb-3">System Health</h3>
               <div class="list-stack">
                 <div class="stack-row"><strong>Server</strong><span class="chip chip-success">Healthy</span></div>
                 <div class="stack-row"><strong>Database</strong><span class="chip chip-success">Online</span></div>
@@ -80,51 +112,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="card">
-              <h3 class="fw-bold mb-3">Recent registrations</h3>
-              <div class="list-stack">
-                <div class="stack-row"><strong>Meera S.</strong><span class="chip chip-primary">Student</span></div>
-                <div class="stack-row"><strong>Arjun K.</strong><span class="chip chip-info">Instructor</span></div>
-                <div class="stack-row"><strong>Nisha R.</strong><span class="chip chip-success">Staff</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="card">
-              <h3 class="fw-bold mb-3">Pending approvals</h3>
-              <div class="list-stack">
-                <div class="stack-row"><strong>3 course submissions</strong><span class="chip chip-warning">Review</span></div>
-                <div class="stack-row"><strong>5 instructor requests</strong><span class="chip chip-warning">Pending</span></div>
-                <div class="stack-row"><strong>2 support escalations</strong><span class="chip chip-danger">Urgent</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="card">
-              <h3 class="fw-bold mb-3">Live activity feed</h3>
-              <div class="timeline-item"><strong>Course published</strong>
-                <p class="text-muted mb-0">AI Foundations was published by the content team.</p>
-              </div>
-              <div class="timeline-item"><strong>Payment received</strong>
-                <p class="text-muted mb-0">A new enterprise subscription was activated.</p>
-              </div>
-              <div class="timeline-item"><strong>Security scan completed</strong>
-                <p class="text-muted mb-0">No critical risks detected in the latest review.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="card">
-              <h3 class="fw-bold mb-3">Calendar</h3>
-              <div id="adminCalendar"></div>
-            </div>
-          </div>
         </div>
       </div>
     </main>
   </div>
  <?php
   include('footer.php');
- 
  ?>

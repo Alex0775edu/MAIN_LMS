@@ -1,41 +1,6 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dhurandhar LMS | Logout confirmation page.">
-    <title>Dhurandhar LMS | Logout</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/site-shell.css">
-</head>
-<body>
-    <main class="logout-page">
-        <section class="card-section logout-card" data-aos="fade-up">
-            <div class="section-heading">
-                <div><span class="section-badge">Logout</span><h3>Ready to sign out?</h3></div>
-            </div>
-            <p class="mb-4">You can safely end your session now. Your dashboard data stays available after you sign in again.</p>
-            <div class="d-flex flex-wrap gap-2">
-                <a href="auth/login.php" class="btn btn-primary">Confirm Logout</a>
-                <a href="dashboard.php" class="btn btn-outline">Cancel</a>
-            </div>
-        </section>
-    </main>
-<script src="js/site-shell.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
+<?php
+session_start();
+session_destroy();
+header('Location: auth/login.php');
+exit;
+?>

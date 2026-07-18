@@ -1,69 +1,44 @@
 ﻿﻿<?php
-include('header.php');
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
+
+require_once __DIR__ . '/connection.php';
+require_once __DIR__ . '/includes/schema.php';
+
+lms_ensure_contact_table($con);
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+$csrf_token = $_SESSION['csrf_token'];
+
 // Initialize variables for form data and messages
 $name = $email = $phone = $subject = $message = '';
 $nameerr = $emailerr = $phoneerr = $subjecterr = $messageerr = $agreeerr = '';
 $success_message = $error_message = '';
 $form_submitted = false;
 
-$con = mysqli_connect(
-    "localhost",
-    "Aditya",
-    "Aditya@0775",
-    "dhurandhar_lms",
-);
-
-if(!$con){
-    die("Database Connection Failed : " .mysqli_connect_error());
-}
-
-// Check if contact table exists, if not create it
-$check_table = "SHOW TABLES LIKE 'contact'";
-$table_result = mysqli_query($con, $check_table);
-
-if(mysqli_num_rows($table_result) == 0) {
-    // Create contact table if it doesn't exist
-    $create_table = "CREATE TABLE IF NOT EXISTS contact (
-        id INT(11) NOT NULL AUTO_INCREMENT,
-        name VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL,
-        phone VARCHAR(20) DEFAULT NULL,
-        subject VARCHAR(50) NOT NULL,
-        message TEXT NOT NULL,
-        agreed TINYINT(1) NOT NULL DEFAULT 0,
-        ip_address VARCHAR(45) DEFAULT NULL,
-        user_agent TEXT DEFAULT NULL,
-        status ENUM('new', 'read', 'replied', 'archived') DEFAULT 'new',
-        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (id),
-        INDEX idx_email (email),
-        INDEX idx_created_at (created_at),
-        INDEX idx_status (status),
-        INDEX idx_subject (subject)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
-    
-    if(!mysqli_query($con, $create_table)){
-        $error_message = 'Database setup error: ' .mysqli_error($con);
-    }
-}
-
 // Check if form is submitted
 if(isset($_POST['submit'])){
     
-    // Sanitize inputs
-    $name = mysqli_real_escape_string($con, trim($_POST['contactname'] ?? ''));
-    $email = mysqli_real_escape_string($con, trim($_POST['contactemail'] ?? ''));
-    $phone = mysqli_real_escape_string($con, trim($_POST['contactphone'] ?? ''));
-    $subject = mysqli_real_escape_string($con, trim($_POST['contactsubject'] ?? ''));
-    $message = mysqli_real_escape_string($con, trim($_POST['contactmessage'] ?? ''));
+    // Normalize inputs
+    $name = trim($_POST['contactname'] ?? '');
+    $email = trim($_POST['contactemail'] ?? '');
+    $phone = trim($_POST['contactphone'] ?? '');
+    $subject = trim($_POST['contactsubject'] ?? '');
+    $message = trim($_POST['contactmessage'] ?? '');
     $agreed = isset($_POST['agreecontact']) ? 1 : 0;
+    $posted_token = $_POST['csrf_token'] ?? '';
     
     // Validation flags
     $isValid = true;
+
+    if (!hash_equals($csrf_token, $posted_token)) {
+        $error_message = 'Security check failed. Please refresh the page and try again.';
+        $isValid = false;
+    }
     // Validate Full Name
     if (empty($name)) {
         $nameerr = 'Full name is required.';
@@ -123,18 +98,15 @@ if(isset($_POST['submit'])){
     
     // If no errors, insert into database
     if ($isValid) {
-        // Get IP address and user agent
-        $ip_address = mysqli_real_escape_string($con, $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0');
-        $user_agent = mysqli_real_escape_string($con, $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown');
-        
-        // Insert query
-        $sql = "INSERT INTO contact 
-                (name, email, phone, subject, message, agreed, ip_address, user_agent, created_at) 
-                VALUES 
-                ('$name', '$email', '$phone', '$subject', '$message', '$agreed', '$ip_address', '$user_agent', NOW())";
-        
-        // Execute query
-        if(mysqli_query($con, $sql)){
+        $ip_address = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+        $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+        $stmt = mysqli_prepare($con, "INSERT INTO contact (name, email, phone, subject, message, agreed, ip_address, user_agent, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
+
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, 'sssssiss', $name, $email, $phone, $subject, $message, $agreed, $ip_address, $user_agent);
+        }
+
+        if($stmt && mysqli_stmt_execute($stmt)){
             $success_message = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
             $form_submitted = true;
             
@@ -142,18 +114,21 @@ if(isset($_POST['submit'])){
             $name = $email = $phone = $subject = $message = '';
             $nameerr = $emailerr = $phoneerr = $subjecterr = $messageerr = $agreeerr = '';
         } else {
-            $error_message = 'Sorry, there was an error sending your message. Please try again later.';
-            // Debug: Uncomment below line to see actual error
-            // $error_message .= ' Error: ' . mysqli_error($con);
+            $error_message = 'Sorry, there was an error sending your message: ' . mysqli_error($con);
+        }
+
+        if ($stmt) {
+            mysqli_stmt_close($stmt);
         }
     } else {
         // Set error message for display
-        $error_message = 'Please correct the errors below.';
+        $error_message = $error_message ?: 'Please correct the errors below.';
     }
 }
 
 $showSuccess = $form_submitted && empty($error_message) && !empty($success_message);
 $showError = !empty($error_message);
+include('header.php');
 ?>
 
 <!-- ==================== PAGE HEADER ==================== -->
@@ -266,6 +241,7 @@ $showError = !empty($error_message);
           <?php endif; ?>
 
           <form id="contactForm" method="post" novalidate>
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
             <div class="row g-3">
               <!-- Name Field -->
               <div class="col-md-6">

@@ -1,154 +1,62 @@
 // ==================== REGISTER PAGE INTERACTIONS ====================
 
-AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
-
-const signupForm = document.getElementById('signupForm');
-const signupButton = document.getElementById('signupButton');
-const buttonLabel = signupButton?.querySelector('.btn-label') || null;
-const spinner = signupButton?.querySelector('.spinner-border') || null;
-const toast = document.getElementById('toast');
-
-const fullName = document.getElementById('fullName');
-const phone = document.getElementById('phone');
-const email = document.getElementById('email');
-const role = document.getElementById('role');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirmPassword');
-const terms = document.getElementById('terms');
-
+const registerForm = document.getElementById('registerForm');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm_password');
 const strengthBar = document.getElementById('strengthBar');
-const lengthReq = document.getElementById('lengthReq');
-const numberReq = document.getElementById('numberReq');
-const symbolReq = document.getElementById('symbolReq');
+const requirementItems = Array.from(document.querySelectorAll('#passwordChecklist li'));
+const toastContainer = document.getElementById('toast');
 
-const showToast = (message) => {
-  if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add('show');
-  clearTimeout(showToast.timeout);
-  showToast.timeout = setTimeout(() => toast.classList.remove('show'), 2400);
+const showToast = (message, type = 'success') => {
+  if (!toastContainer) return;
+  toastContainer.textContent = message;
+  toastContainer.className = `toast-notification ${type}`;
+  toastContainer.classList.add('show');
+  window.clearTimeout(showToast.timeout);
+  showToast.timeout = window.setTimeout(() => toastContainer.classList.remove('show'), 3200);
 };
 
 const setError = (field, message) => {
+  if (!field) return;
   field.classList.add('is-invalid');
   field.classList.remove('is-valid');
-  const errorId = `${field.id}Error`;
-  const errorEl = document.getElementById(errorId);
-  if (errorEl) errorEl.textContent = message;
 };
 
 const clearError = (field) => {
+  if (!field) return;
   field.classList.remove('is-invalid');
   field.classList.add('is-valid');
-  const errorId = `${field.id}Error`;
-  const errorEl = document.getElementById(errorId);
-  if (errorEl) errorEl.textContent = '';
-};
-
-const validateRequired = (field, message) => {
-  if (!field || !field.value.trim()) {
-    if (field) setError(field, message);
-    return false;
-  }
-  if (field) clearError(field);
-  return true;
-};
-
-const validateEmail = () => {
-  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email.value.trim()) {
-    setError(email, 'Email address is required.');
-    return false;
-  }
-  if (!pattern.test(email.value.trim())) {
-    setError(email, 'Please enter a valid email address.');
-    return false;
-  }
-  clearError(email);
-  return true;
-};
-
-const validatePhone = () => {
-  const pattern = /^[0-9]{10}$/;
-  if (!phone.value.trim()) {
-    setError(phone, 'Phone number is required.');
-    return false;
-  }
-  if (!pattern.test(phone.value.trim())) {
-    setError(phone, 'Please enter a valid 10-digit phone number.');
-    return false;
-  }
-  clearError(phone);
-  return true;
 };
 
 const updatePasswordStrength = () => {
-  const value = password.value;
-  const lengthValid = value.length >= 8;
-  const numberValid = /\d/.test(value);
-  const symbolValid = /[^A-Za-z0-9]/.test(value);
+  const value = passwordInput?.value || '';
+  const checks = [
+    { test: value.length >= 8, item: requirementItems.find((item) => item.getAttribute('data-pass') === 'length') },
+    { test: /[A-Z]/.test(value), item: requirementItems.find((item) => item.getAttribute('data-pass') === 'uppercase') },
+    { test: /[a-z]/.test(value), item: requirementItems.find((item) => item.getAttribute('data-pass') === 'lowercase') },
+    { test: /[0-9]/.test(value), item: requirementItems.find((item) => item.getAttribute('data-pass') === 'number') },
+    { test: /[^A-Za-z0-9]/.test(value), item: requirementItems.find((item) => item.getAttribute('data-pass') === 'special') }
+  ];
 
-  lengthReq.classList.toggle('valid', lengthValid);
-  numberReq.classList.toggle('valid', numberValid);
-  symbolReq.classList.toggle('valid', symbolValid);
+  checks.forEach(({ test, item }) => {
+    if (item) {
+      item.classList.toggle('valid', test);
+    }
+  });
 
-  const score = [lengthValid, numberValid, symbolValid].filter(Boolean).length;
-  const percent = (score / 3) * 100;
+  const score = checks.filter(({ test }) => test).length;
+  const percent = (score / checks.length) * 100;
   if (strengthBar) {
     strengthBar.style.width = `${percent}%`;
-    if (percent < 40) {
-      strengthBar.style.background = 'linear-gradient(135deg, #ef4444, #fb923c)';
-    } else if (percent < 80) {
-      strengthBar.style.background = 'linear-gradient(135deg, #f59e0b, #facc15)';
-    } else {
-      strengthBar.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
-    }
+    strengthBar.style.background = percent < 60 ? 'linear-gradient(135deg, #ff6b6b, #ffb703)' : 'linear-gradient(135deg, #28c76f, #6c63ff)';
   }
-
-  return lengthValid && numberValid && symbolValid;
-};
-
-const validatePassword = () => {
-  const isStrong = updatePasswordStrength();
-  if (!password.value.trim()) {
-    setError(password, 'Password is required.');
-    return false;
-  }
-  if (!isStrong) {
-    setError(password, 'Please meet all password requirements.');
-    return false;
-  }
-  clearError(password);
-  return true;
-};
-
-const validateConfirmPassword = () => {
-  if (!confirmPassword.value.trim()) {
-    setError(confirmPassword, 'Please confirm your password.');
-    return false;
-  }
-  if (confirmPassword.value !== password.value) {
-    setError(confirmPassword, 'Passwords do not match.');
-    return false;
-  }
-  clearError(confirmPassword);
-  return true;
-};
-
-const validateTerms = () => {
-  if (!terms.checked) {
-    const termsError = document.getElementById('termsError');
-    if (termsError) termsError.textContent = 'You must accept the terms to continue.';
-    return false;
-  }
-  const termsError = document.getElementById('termsError');
-  if (termsError) termsError.textContent = '';
-  return true;
+  return score === checks.length;
 };
 
 document.querySelectorAll('.password-toggle').forEach((button) => {
   button.addEventListener('click', () => {
-    const targetInput = document.getElementById(button.id === 'passwordToggle' ? 'password' : 'confirmPassword');
+    const targetId = button.getAttribute('data-toggle-for');
+    const targetInput = document.getElementById(targetId);
     if (!targetInput) return;
     const isPassword = targetInput.type === 'password';
     targetInput.type = isPassword ? 'text' : 'password';
@@ -157,50 +65,98 @@ document.querySelectorAll('.password-toggle').forEach((button) => {
   });
 });
 
-[fullName, email, phone, role, password, confirmPassword].forEach((field) => {
-  field.addEventListener('input', () => {
-    if (field === password) {
+const validateField = (field, message) => {
+  if (!field) return true;
+  if (!field.value.trim()) {
+    setError(field, message);
+    return false;
+  }
+  clearError(field);
+  return true;
+};
+
+const validateEmail = () => {
+  const field = document.getElementById('email');
+  if (!field) return true;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!field.value.trim()) {
+    setError(field, 'Email address is required.');
+    return false;
+  }
+  if (!pattern.test(field.value.trim())) {
+    setError(field, 'Please enter a valid email address.');
+    return false;
+  }
+  clearError(field);
+  return true;
+};
+
+const validatePassword = () => {
+  const strong = updatePasswordStrength();
+  if (!passwordInput?.value.trim()) {
+    setError(passwordInput, 'Password is required.');
+    return false;
+  }
+  if (!strong) {
+    setError(passwordInput, 'Please meet all password requirements.');
+    return false;
+  }
+  clearError(passwordInput);
+  return true;
+};
+
+const validateConfirmPassword = () => {
+  if (!confirmPasswordInput?.value.trim()) {
+    setError(confirmPasswordInput, 'Please confirm your password.');
+    return false;
+  }
+  if (confirmPasswordInput.value !== passwordInput?.value) {
+    setError(confirmPasswordInput, 'Passwords do not match.');
+    return false;
+  }
+  clearError(confirmPasswordInput);
+  return true;
+};
+
+const validateTerms = () => {
+  const termsField = document.getElementById('terms');
+  if (!termsField?.checked) {
+    setError(termsField, 'Please accept the terms to continue.');
+    return false;
+  }
+  termsField.classList.remove('is-invalid');
+  return true;
+};
+
+['fullname', 'username', 'email', 'phone', 'country', 'password', 'confirm_password'].forEach((fieldId) => {
+  const field = document.getElementById(fieldId);
+  field?.addEventListener('input', () => {
+    if (fieldId === 'password') {
       validatePassword();
-    } else if (field === confirmPassword) {
+    } else if (fieldId === 'confirm_password') {
       validateConfirmPassword();
-    } else if (field === email) {
+    } else if (fieldId === 'email') {
       validateEmail();
-    } else if (field === phone) {
-      validatePhone();
     } else {
-      validateRequired(field, `${field.previousElementSibling?.textContent || 'This field'} is required.`);
+      validateField(field, 'This field is required.');
     }
   });
 });
 
-password.addEventListener('input', updatePasswordStrength);
+passwordInput?.addEventListener('input', updatePasswordStrength);
 
-signupForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const isFullNameValid = validateRequired(fullName, 'Full name is required.');
+registerForm?.addEventListener('submit', (event) => {
+  const isFullNameValid = validateField(document.getElementById('fullname'), 'Full name is required.');
+  const isUsernameValid = validateField(document.getElementById('username'), 'Username is required.');
   const isEmailValid = validateEmail();
-  const isPhoneValid = validatePhone();
+  const isPhoneValid = validateField(document.getElementById('phone'), 'Phone number is required.');
+  const isCountryValid = validateField(document.getElementById('country'), 'Please select your country.');
   const isPasswordValid = validatePassword();
   const isConfirmPasswordValid = validateConfirmPassword();
   const isTermsValid = validateTerms();
 
-  if (!isFullNameValid || !isEmailValid || !isPhoneValid || !isPasswordValid || !isConfirmPasswordValid || !isTermsValid) {
-    showToast('Please correct the highlighted fields.');
-    return;
+  if (!isFullNameValid || !isUsernameValid || !isEmailValid || !isPhoneValid || !isCountryValid || !isPasswordValid || !isConfirmPasswordValid || !isTermsValid) {
+    event.preventDefault();
+    showToast('Please correct the highlighted fields.', 'error');
   }
-
-  if (signupButton) signupButton.disabled = true;
-  if (buttonLabel) buttonLabel.classList.add('d-none');
-  if (spinner) spinner.classList.remove('d-none');
-
-  setTimeout(() => {
-    if (signupButton) signupButton.disabled = false;
-    if (buttonLabel) buttonLabel.classList.remove('d-none');
-    if (spinner) spinner.classList.add('d-none');
-    showToast('Account created successfully. Welcome aboard!');
-    signupForm.reset();
-    [lengthReq, numberReq, symbolReq].forEach((item) => item.classList.remove('valid'));
-    if (strengthBar) strengthBar.style.width = '0%';
-  }, 1400);
 });

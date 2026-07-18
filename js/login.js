@@ -1,113 +1,84 @@
 // ==================== LOGIN PAGE INTERACTIONS ====================
 
-AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
-
 const loginForm = document.getElementById('loginForm');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const passwordToggle = document.getElementById('passwordToggle');
-const rememberCheckbox = document.getElementById('remember');
-const rememberHint = document.getElementById('rememberHint');
-const loginButton = document.getElementById('loginButton');
-const buttonLabel = loginButton?.querySelector('.btn-label') || null;
-const spinner = loginButton?.querySelector('.spinner-border') || null;
-const toast = document.getElementById('toast');
+const emailInput = document.getElementById('loginEmail');
+const passwordInput = document.getElementById('loginPassword');
+const passwordToggle = document.querySelector('.password-toggle');
+const loginButton = document.querySelector('#loginForm button[type="submit"]');
+const toastContainer = document.getElementById('toastContainer');
 
-const emailError = document.getElementById('emailError');
-const passwordError = document.getElementById('passwordError');
+const showToast = (message, type = 'success') => {
+  if (!toastContainer) return;
+  const toast = document.createElement('div');
+  toast.className = `toast-message ${type}`;
+  toast.innerHTML = `<strong>${type === 'success' ? 'Success' : 'Error'}</strong><p>${message}</p>`;
+  toastContainer.appendChild(toast);
+  window.clearTimeout(showToast.timeout);
+  showToast.timeout = window.setTimeout(() => {
+    toast.classList.add('toast-hide');
+    toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+  }, 3200);
+};
 
-const setError = (input, errorElement, message) => {
+const setError = (input, message) => {
+  if (!input) return;
   input.classList.add('is-invalid');
   input.classList.remove('is-valid');
-  if (errorElement) errorElement.textContent = message;
+  const feedback = document.getElementById(`${input.id}Error`);
+  if (feedback) feedback.textContent = message;
 };
 
-const clearError = (input, errorElement) => {
+const clearError = (input) => {
+  if (!input) return;
   input.classList.remove('is-invalid');
   input.classList.add('is-valid');
-  if (errorElement) errorElement.textContent = '';
+  const feedback = document.getElementById(`${input.id}Error`);
+  if (feedback) feedback.textContent = '';
 };
-
-const showToast = (message) => {
-  if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add('show');
-  clearTimeout(showToast.timeout);
-  showToast.timeout = setTimeout(() => toast.classList.remove('show'), 2400);
-};
-
-passwordToggle?.addEventListener('click', () => {
-  const isPassword = passwordInput.type === 'password';
-  passwordInput.type = isPassword ? 'text' : 'password';
-  const icon = passwordToggle.querySelector('i');
-  if (icon) icon.className = isPassword ? 'fas fa-eye-slash' : 'fas fa-eye';
-  passwordToggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
-});
-
-rememberCheckbox?.addEventListener('change', () => {
-  if (rememberCheckbox.checked && rememberHint) {
-    rememberHint.textContent = 'You will stay signed in on this device.';
-  } else if (rememberHint) {
-    rememberHint.textContent = 'We will keep your session secure on this device.';
-  }
-});
 
 const validateField = (input) => {
   const value = input.value.trim();
-
   if (!value) {
-    if (input.id === 'email') {
-      setError(input, emailError, 'Email address is required.');
-    } else {
-      setError(input, passwordError, 'Password is required.');
-    }
+    setError(input, input === emailInput ? 'Email address is required.' : 'Password is required.');
     return false;
   }
-
-  if (input.id === 'email') {
+  if (input === emailInput) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(value)) {
-      setError(input, emailError, 'Please enter a valid email address.');
+      setError(input, 'Please enter a valid email address.');
       return false;
     }
-    clearError(input, emailError);
-    return true;
   }
-
-  if (value.length < 8) {
-    setError(input, passwordError, 'Password must be at least 8 characters.');
-    return false;
-  }
-
-  clearError(input, passwordError);
+  clearError(input);
   return true;
 };
 
 emailInput?.addEventListener('input', () => validateField(emailInput));
 passwordInput?.addEventListener('input', () => validateField(passwordInput));
 
-loginForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
+passwordToggle?.addEventListener('click', () => {
+  const input = document.getElementById('loginPassword');
+  if (!input) return;
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+  const icon = passwordToggle.querySelector('i');
+  if (icon) icon.className = isPassword ? 'fas fa-eye-slash' : 'fas fa-eye';
+});
 
+loginForm?.addEventListener('submit', (event) => {
   const isEmailValid = validateField(emailInput);
   const isPasswordValid = validateField(passwordInput);
-
   if (!isEmailValid || !isPasswordValid) {
-    showToast('Please correct the highlighted fields.');
-    return;
+    event.preventDefault();
+    showToast('Please correct the highlighted fields.', 'error');
   }
-
-  if (loginButton) loginButton.disabled = true;
-  if (buttonLabel) buttonLabel.classList.add('d-none');
-  if (spinner) spinner.classList.remove('d-none');
-
-  window.setTimeout(() => {
-    if (loginButton) loginButton.disabled = false;
-    if (buttonLabel) buttonLabel.classList.remove('d-none');
-    if (spinner) spinner.classList.add('d-none');
-    showToast('Login successful. Welcome back!');
-    loginForm.reset();
-    if (rememberHint) rememberHint.textContent = 'We will keep your session secure on this device.';
-    [emailInput, passwordInput].forEach((input) => input.classList.remove('is-valid'));
-  }, 1400);
 });
+
+if (loginButton) {
+  loginButton.addEventListener('click', function () {
+    this.disabled = true;
+    window.setTimeout(() => {
+      this.disabled = false;
+    }, 1500);
+  });
+}

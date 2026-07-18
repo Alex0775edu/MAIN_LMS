@@ -16,7 +16,21 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
   color: var(--text-dark);
-  transition: background-color 1.0s, color 1.0s;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 /* Top bar */
@@ -57,7 +71,7 @@ body {
 }
 
 .header-logo:hover {
-  color: #ffffff;
+  color: var(--primary);
   transform: translateX(5px);
 }
 
@@ -169,6 +183,8 @@ footer a:hover {
 #scrollTopBtn {
   display: none;
   z-index: 999;
+  border: 0;
+  box-shadow: var(--shadow-md);
 }
 
 

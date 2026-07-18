@@ -1,0 +1,94 @@
+:root {
+  color-scheme: dark;
+  --shell-bg: #071028;
+  --shell-panel: rgba(255,255,255,0.06);
+  --shell-border: rgba(255,255,255,0.12);
+  --shell-text: #f5f7ff;
+  --shell-muted: #b8c2e6;
+  --shell-accent: #6c63ff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: var(--shell-bg);
+  color: var(--shell-text);
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+.btn-ripple {
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+.btn-ripple:hover { transform: translateY(-1px); }
+
+.password-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--shell-muted);
+  cursor: pointer;
+}
+
+.password-toggle:hover { color: var(--shell-text); }
+
+.toast-container {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  z-index: 1200;
+}
+
+.toast-message {
+  min-width: 260px;
+  max-width: 320px;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(7, 16, 40, 0.95);
+  border: 1px solid var(--shell-border);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+  color: var(--shell-text);
+}
+
+.toast-message strong { display: block; margin-bottom: 0.2rem; }
+.toast-message p { margin: 0; color: var(--shell-muted); }
+
+.toast-hide { opacity: 0; transform: translateY(8px); transition: all 220ms ease; }
+
+.input-with-icon { position: relative; }
+.input-with-icon i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--shell-muted);
+}
+
+.form-control, .form-select {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--shell-border);
+  background: rgba(255,255,255,0.06);
+  color: var(--shell-text);
+}
+
+.form-control::placeholder { color: #9ba8cf; }
+.form-control:focus, .form-select:focus {
+  border-color: var(--shell-accent);
+  box-shadow: 0 0 0 0.2rem rgba(108,99,255,0.18);
+}
+
+.is-invalid { border-color: #ff6b6b !important; }
+.is-valid { border-color: #28c76f !important; }
+
+@media (max-width: 768px) {
+  .auth-panel--showcase { padding: 1.5rem; }
+  .auth-card { padding: 1.5rem; }
+}

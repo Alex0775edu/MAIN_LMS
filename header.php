@@ -1,3 +1,35 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+function lms_site_url(string $path = ''): string
+{
+    static $base = null;
+
+    if ($base === null) {
+        $document_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');
+        $header_dir = str_replace('\\', '/', __DIR__);
+        $base = '';
+
+        if ($document_root !== '' && strpos($header_dir, $document_root) === 0) {
+            $base = '/' . ltrim(substr($header_dir, strlen($document_root)), '/');
+        }
+
+        $base = rtrim($base, '/');
+    }
+
+    $path = ltrim($path, '/');
+    return $base === '' ? '/' . $path : $base . '/' . $path;
+}
+
+$site_url = lms_site_url();
+$is_logged_in = !empty($_SESSION['logged_in']) || isset($_SESSION['login_data']);
+$current_role = $_SESSION['role'] ?? ($_SESSION['login_data']['role'] ?? 'student');
+$dashboard_link = $current_role === 'admin'
+    ? lms_site_url('admin/index.php')
+    : ($current_role === 'instructor' ? lms_site_url('instructor/dashboard.php') : lms_site_url('dashboard.php'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description"
         content="Dhurandhar LMS | Learn Without Limits page for the Dhurandhar Enterprise LMS frontend.">
-    <link rel="icon" href="assets/logo-lms.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo htmlspecialchars(lms_site_url('assets/logo-lms.png')); ?>" type="image/x-icon">
     <title>Dhurandhar LMS | Learn Without Limits</title>
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,25 +52,24 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS Architecture -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/about-style.css">
-    <link rel="stylesheet" href="css/admin-panel.css">
-    <link rel="stylesheet" href="css/auth.css">
-    <link rel="stylesheet" href="css/blog-style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="css/forget-password.css">
-    <link rel="stylesheet" href="css/instrutors-style.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/module-page.css">
-    <link rel="stylesheet" href="css/otp-verification.css">
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/reset-password.css">
-    <link rel="stylesheet" href="css/instructor-module.css">
-    <link rel="stylesheet" href="css/student-module.css">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/variables.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/utilities.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/animations.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/responsive.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/about-style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/auth.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/blog-style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/dashboard.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/forgot-password.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/instructors-style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/login.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/module-pages.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/otp-verification.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/register.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/reset-password.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/instructor-module.css')); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(lms_site_url('css/student-module.css')); ?>">
 </head>
 
 <body>
@@ -72,8 +103,9 @@
     <!-- ==================== MAIN NAVIGATION ==================== -->
     <nav id="mainNavbar" class="navbar navbar-expand-xl navbar-lms sticky-top" aria-label="Primary navigation">
         <div class="container">
-            <a href="index.php" class="header-logo">
-                <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
+            <a href="<?php echo htmlspecialchars(lms_site_url('index.php')); ?>" class="header-logo">
+                <img src="<?php echo htmlspecialchars(lms_site_url('assets/logo-lms.png')); ?>" alt="Dhurandhar LMS Logo" class="logo-img" loading="lazy" width="70" height="70">
+                Dhura<span>ndhar</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +113,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
-                    <li class="nav-item"><a class="nav-link active" href="index.php" data-nav-link>Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="<?php echo htmlspecialchars(lms_site_url('index.php')); ?>" data-nav-link>Home</a></li>
                     <li class="nav-item dropdown mega-dropdown">
-                        <a class="nav-link dropdown-toggle" href="courses.php" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="<?php echo htmlspecialchars(lms_site_url('courses.php')); ?>" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false" data-nav-link>
                             Courses
                         </a>
@@ -182,17 +214,21 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="categories.php" data-nav-link>Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.php" data-nav-link>Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="instructors.php" data-nav-link>Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.php" data-nav-link>Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.php" data-nav-link>About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.php" data-nav-link>Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('categories.php')); ?>" data-nav-link>Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('pricing.php')); ?>" data-nav-link>Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('instructors.php')); ?>" data-nav-link>Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('blog.php')); ?>" data-nav-link>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('about.php')); ?>" data-nav-link>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo htmlspecialchars(lms_site_url('contact.php')); ?>" data-nav-link>Contact</a></li>
                 </ul>
-                <a class="btn btn-outline-lms" href="auth/login.php">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-solid-lms" href="register.php">Register</a>
+                <?php if ($is_logged_in): ?>
+                    <a class="btn btn-outline-lms" href="<?php echo htmlspecialchars($dashboard_link); ?>">Dashboard</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-solid-lms" href="<?php echo htmlspecialchars(lms_site_url('admin/logout.php')); ?>">Logout</a>
+                <?php else: ?>
+                    <a class="btn btn-outline-lms" href="<?php echo htmlspecialchars(lms_site_url('auth/login.php')); ?>">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-solid-lms" href="<?php echo htmlspecialchars(lms_site_url('register.php')); ?>">Register</a>
+                <?php endif; ?>
             </div>
-        </div>
         </div>
     </nav>
 

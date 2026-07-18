@@ -17,6 +17,77 @@ body {
     background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
 }
 
+.form-card,
+.form-card .form-label,
+.form-card .form-check-label,
+.form-card p,
+.form-card .form-intro,
+.form-card .switch-link,
+.form-card .divider span,
+.form-card .requirement-list li {
+    color: #0f172a;
+}
+
+.form-control,
+.form-select,
+.form-control::placeholder,
+.form-select option,
+.input-group-text,
+.password-toggle {
+    color: #0f172a;
+}
+
+.form-control::placeholder {
+    color: #64748b;
+}
+
+.form-control,
+.form-select {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(37, 99, 235, 0.6);
+    box-shadow: 0 0 0 .2rem rgba(37, 99, 235, 0.18);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid,
+.form-check-input.is-invalid {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 .2rem rgba(220, 38, 38, 0.16);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 .2rem rgba(22, 163, 74, 0.16);
+}
+
+.invalid-feedback {
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.alert-success {
+    color: #166534;
+    background: #ecfdf3;
+    border-color: #86efac;
+}
+
+.alert-danger {
+    color: #991b1b;
+    background: #fef2f2;
+    border-color: #fca5a5;
+}
+
+.requirement-list li.valid {
+    color: #15803d;
+    font-weight: 600;
+}
+
 img { max-width: 100%; display: block; }
 .auth-shell { min-height: 100vh; overflow-x: hidden; }
 .auth-hero {

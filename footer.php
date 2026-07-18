@@ -38,10 +38,10 @@
                                 <h5 class="footer-title">Quick Links</h5>
                                 <ul class="footer-menu">
                                     <li><a href="index.php"><i class="fas fa-chevron-right"></i> Home</a></li>
-                                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                                    <li><a href="#courses"><i class="fas fa-chevron-right"></i> All Courses</a></li>
-                                    <li><a href="#instructors"><i class="fas fa-chevron-right"></i> Instructors</a></li>
-                                    <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a>
+                                    <li><a href="about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                                    <li><a href="courses.php"><i class="fas fa-chevron-right"></i> All Courses</a></li>
+                                    <li><a href="instructors.php"><i class="fas fa-chevron-right"></i> Instructors</a></li>
+                                    <li><a href="blog.php"><i class="fas fa-chevron-right"></i> Blog</a>
                                     </li>
                                     <li><a href="contact.php"><i class="fas fa-chevron-right"></i> Contact</a></li>
                                 </ul>
@@ -162,21 +162,7 @@
         <script src="js/search.js"></script>
         <script src="js/theme.js"></script>
         <script src="js/validation.js"></script>
-        <script src="js/dashboard.js"></script>
-        <script src="js/about-script.js"></script>
-        <script src="js/admin-panel.js"></script>
-        <script src="js/auth.js"></script>
-        <script src="js/blog-script.js"></script>
-        <script src="js/forgot-password.js"></script>
-        <script src="js/instructors-script.js"></script>
-        <script src="js/login.js"></script>
         <script src="js/module-pages.js"></script>
-        <script src="js/otp-verification.js"></script>
-        <script src="js/register.js"></script>
-        <script src="js/reset-password.js"></script>
-        <script src="js/instructor-module.js"></script>
-        <script src="js/search.js"></script>
-        <script src="js/student-module.js"></script>
 </body>
 
 </html>
