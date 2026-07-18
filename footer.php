@@ -8,8 +8,8 @@
                         <!-- Column 1: About Company -->
                         <div class="col-lg-4 col-md-6" data-aos="fade-up">
                             <div class="footer-about">
-                                <a href="index.php" class="footer-logo">
-                                    <i class="fas fa-graduation-cap me-2"></i>Dhura<span>ndhar</span>
+                                <a href="<?php echo htmlspecialchars(lms_site_url('index.php')); ?>" class="header-logo">
+                <img src="<?php echo htmlspecialchars(lms_site_url('assets/logo-lms.png')); ?>" alt="Dhurandhar LMS Logo" class="logo-img" loading="lazy" width="70" height="70"><span class="text-white">Dhura<span>ndhar</span>
                                 </a>
                                 <p class="footer-description">
                                     Empowering learners worldwide with 5,000+ professional courses.

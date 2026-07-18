@@ -18,18 +18,18 @@ include('header.php');
                             designed for modern learners.
                         </p>
 
-                        <form class="hero-search" role="search" id="heroSearchForm" method="get">
+                        <form class="hero-search" role="search" id="heroSearchForm" method="get" action="courses.php">
                             <div class="search-input-wrap">
                                 <i class="fas fa-search" aria-hidden="true"></i>
                                 <input type="text" class="form-control" placeholder="What do you want to learn?"
                                     aria-label="Search courses" name="search_courses">
                             </div>
-                            <select class="form-select" aria-label="Select category" name="select_category">
-                                <option selected>All Categories</option>
-                                <option>Web Development</option>
-                                <option>Programming</option>
-                                <option>AI</option>
-                                <option>Data Science</option>
+                            <select class="form-select" aria-label="Select category" name="select_category" bg-black>
+                                <option selected class="text-black">All Categories</option>
+                                <option class="text-black">Web Development</option>
+                                <option class="text-black">Programming</option>
+                                <option class="text-black">AI</option>
+                                <option class="text-black">Data Science</option>
                             </select>
                             <button type="button" class="btn btn-search">Search</button>
                         </form>
