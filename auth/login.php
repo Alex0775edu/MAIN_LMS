@@ -1,12 +1,11 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-require_once __DIR__ . '/../connection.php';
-require_once __DIR__ . '/../includes/schema.php';
-
-lms_ensure_users_table($con);
+session_start();
+$con = mysqli_connect(
+    "localhost",
+    "Aditya",
+    "Aditya@0775",
+    "dhurandhar_lms"
+);
 
 $message = '';
 $email = trim($_POST['email'] ?? '');
@@ -152,14 +151,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         <?php endif; ?>
 
-                        <form id="loginForm" method="post" novalidate>
+                        <form method="post" action="">
                             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
 
                             <div class="mb-3">
                                 <label for="loginEmail" class="form-label">Email address</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                    <input type="email" class="form-control" id="loginEmail" name="email" value="<?php echo htmlspecialchars($email); ?>" placeholder="name@example.com" autocomplete="email" required>
+                                    <input type="email" class="form-control" id="loginEmail" name="email" value="<?php echo htmlspecialchars($email); ?>" placeholder="name@example.com" autocomplete="email">
                                 </div>
                                 <div class="invalid-feedback" id="loginEmailError"></div>
                             </div>
@@ -168,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <label for="loginPassword" class="form-label">Password</label>
                                 <div class="input-group input-group-lg password-group">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                    <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                                    <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password">
                                     <button class="btn password-toggle" type="button" data-toggle-for="loginPassword" aria-label="Show password"><i class="fas fa-eye"></i></button>
                                 </div>
                                 <div class="invalid-feedback" id="loginPasswordError"></div>
