@@ -99,7 +99,7 @@ $admin_count = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as count F
                       <td><?php echo date('M d, Y', strtotime($user['created_at'])); ?></td>
                       <td>
                         <div class="btn-group btn-group-sm">
-                          <a href="edit_user.php?id=<?php echo $user['id']; ?>" class="btn btn-outline-primary" title="Edit">
+                          <a href="update-users.php?id=<?php echo $user['id']; ?>" class="btn btn-outline-primary" title="Edit">
                             <i class="fas fa-edit"></i>
                           </a>
                           <a href="view_user.php?id=<?php echo $user['id']; ?>" class="btn btn-outline-info" title="View">
@@ -152,7 +152,7 @@ $admin_count = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as count F
   <script>
     function confirmDelete(userId, userName) {
       document.getElementById('deleteUserName').textContent = userName;
-      document.getElementById('deleteConfirmBtn').href = 'delete_user.php?id=' + userId;
+      document.getElementById('deleteConfirmBtn').href = 'delete-users.php?id=' + userId;
       new bootstrap.Modal(document.getElementById('deleteModal')).show();
     }
   </script>

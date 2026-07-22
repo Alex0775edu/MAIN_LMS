@@ -111,7 +111,7 @@ $dashboard_link = $current_role === 'admin'
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="collapse  navbar-collapse" id="navbarContent" >
                 <ul class="navbar-nav mx-auto mb-2 mb-xl-0">
                     <li class="nav-item"><a class="nav-link active" href="<?php echo htmlspecialchars(lms_site_url('index.php')); ?>" data-nav-link>Home</a></li>
                     <li class="nav-item dropdown mega-dropdown">

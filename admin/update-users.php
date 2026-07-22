@@ -8,38 +8,18 @@ $success_message = $error_message = '';
 $form_submitted = false;
 
 // Check if users table exists, if not create it
-$check_table = "SHOW TABLES LIKE 'users'";
-$table_result = mysqli_query($con, $check_table);
-
-if(mysqli_num_rows($table_result) == 0) {
-    // Create users table if it doesn't exist
-    $create_table = "CREATE TABLE IF NOT EXISTS users (
-        id INT(11) NOT NULL AUTO_INCREMENT,
-        fullname VARCHAR(100) NOT NULL,
-        username VARCHAR(50) NOT NULL UNIQUE,
-        email VARCHAR(100) NOT NULL UNIQUE,
-        phone VARCHAR(20) NOT NULL,
-        country VARCHAR(50) NOT NULL,
-        gender ENUM('Male', 'Female', 'Other') NOT NULL,
-        password VARCHAR(255) NOT NULL,
-        role ENUM('student', 'instructor', 'admin') DEFAULT 'student',
-        status ENUM('active', 'inactive', 'suspended') DEFAULT 'active',
-        ip_address VARCHAR(45) DEFAULT NULL,
-        user_agent TEXT DEFAULT NULL,
-        last_login TIMESTAMP NULL,
-        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (id),
-        UNIQUE KEY unique_username (username),
-        UNIQUE KEY unique_email (email),
-        INDEX idx_email (email),
-        INDEX idx_username (username),
-        INDEX idx_created_at (created_at),
-        INDEX idx_status (status)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
-    
-    if(!mysqli_query($con, $create_table)){
-        $error_message = 'Database setup error: ' . mysqli_error($con);
+if(isset($_GET['id'])){
+    $user_id = intval($_GET['id']);
+    $user_query = "SELECT * FROM users WHERE id = $user_id";
+    $user_result = mysqli_query($con, $user_query);
+    if(mysqli_num_rows($user_result) > 0){
+        $user_data = mysqli_fetch_assoc($user_result);
+        $fullname = $user_data['fullname'];
+        $username = $user_data['username'];
+        $email = $user_data['email'];
+        $phone = $user_data['phone'];
+        $country = $user_data['country'];
+        $gender = $user_data['gender'];
     }
 }
 
@@ -53,10 +33,8 @@ if(isset($_POST['submit'])){
     $phone = mysqli_real_escape_string($con, trim($_POST['phone'] ?? ''));
     $country = mysqli_real_escape_string($con, trim($_POST['country'] ?? ''));
     $gender = mysqli_real_escape_string($con, trim($_POST['gender'] ?? ''));
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
-    $terms = isset($_POST['terms']) ? 1 : 0;
     $role = mysqli_real_escape_string($con, trim($_POST['role'] ?? 'student'));
+    
     // Validation flags
     $isValid = true;
     
@@ -88,15 +66,7 @@ if(isset($_POST['submit'])){
     } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
         $usernameerr = 'Username can only contain letters, numbers, and underscores.';
         $isValid = false;
-    } else {
-        // Check if username already exists
-        $check_username = "SELECT id FROM users WHERE username = '$username'";
-        $username_result = mysqli_query($con, $check_username);
-        if(mysqli_num_rows($username_result) > 0) {
-            $usernameerr = 'Username already taken. Please choose another.';
-            $isValid = false;
-        }
-    }
+    } 
     
     // Validate Email
     if (empty($email)) {
@@ -108,15 +78,7 @@ if(isset($_POST['submit'])){
     } elseif (strlen($email) > 100) {
         $emailerr = 'Email cannot exceed 100 characters.';
         $isValid = false;
-    } else {
-        // Check if email already exists
-        $check_email = "SELECT id FROM users WHERE email = '$email'";
-        $email_result = mysqli_query($con, $check_email);
-        if(mysqli_num_rows($email_result) > 0) {
-            $emailerr = 'Email already registered. Please use another or login.';
-            $isValid = false;
-        }
-    }
+    } 
     
     // Validate Phone
     if (empty($phone)) {
@@ -142,57 +104,18 @@ if(isset($_POST['submit'])){
         $isValid = false;
     }
     
-    // Validate Password
-    if (empty($password)) {
-        $passworderr = 'Password is required.';
-        $isValid = false;
-    } elseif (strlen($password) < 8) {
-        $passworderr = 'Password must be at least 8 characters.';
-        $isValid = false;
-    } elseif (!preg_match('/[A-Z]/', $password)) {
-        $passworderr = 'Password must contain at least one uppercase letter.';
-        $isValid = false;
-    } elseif (!preg_match('/[a-z]/', $password)) {
-        $passworderr = 'Password must contain at least one lowercase letter.';
-        $isValid = false;
-    } elseif (!preg_match('/[0-9]/', $password)) {
-        $passworderr = 'Password must contain at least one number.';
-        $isValid = false;
-    } elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
-        $passworderr = 'Password must contain at least one special character.';
-        $isValid = false;
-    }
-    
-    // Validate Confirm Password
-    if (empty($confirm_password)) {
-        $confirm_passworderr = 'Please confirm your password.';
-        $isValid = false;
-    } elseif ($password !== $confirm_password) {
-        $confirm_passworderr = 'Passwords do not match.';
-        $isValid = false;
-    }
-    
-    // Validate Terms
-    if (!$terms) {
-        $termserr = 'You must agree to the Terms of Service and Privacy Policy.';
-        $isValid = false;
-    }
     
     // If no errors, insert into database
     if ($isValid) {
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         
         // Get IP address and user agent
         $ip_address = mysqli_real_escape_string($con, $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0');
         $user_agent = mysqli_real_escape_string($con, $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown');
         
         // Insert query
-        $sql = "INSERT INTO users 
-                (fullname, username, email, phone, country, gender, password, role, ip_address, user_agent, created_at) 
-                VALUES 
-                ('$fullname', '$username', '$email', '$phone', '$country', '$gender', '$hashed_password', '$role', '$ip_address', '$user_agent', NOW())";
-        
+        $sql = "update users set fullname='$fullname', username='$username', email='$email', phone='$phone', country='$country', gender='$gender', role='$role
+', ip_address='$ip_address', user_agent='$user_agent' where id=$user_id";
         // Execute query
         if(mysqli_query($con, $sql)){
             $success_message = 'Registration successful! Welcome to Dhurandhar LMS.';
@@ -368,51 +291,11 @@ $showError = !empty($error_message);
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" class="form-control <?php echo !empty($passworderr) ? 'is-invalid' : ''; ?>" 
-                                   id="password" name="password" placeholder="Create a strong password" 
-                                   autocomplete="new-password" required>
-                        </div>
-                        <div class="strength-meter mt-2" style="height: 4px; background: #e9ecef; border-radius: 2px; overflow: hidden;">
-                            <div id="strengthBar" style="width: 0%; height: 100%; background: #dc3545; transition: width 0.3s;"></div>
-                        </div>
-                        <small class="text-muted">Password must be at least 8 characters with uppercase, lowercase, number, and special character.</small>
-                        <?php if (!empty($passworderr)): ?>
-                        <div class="invalid-feedback d-block"><?php echo htmlspecialchars($passworderr); ?></div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="confirm_password" class="form-label">Confirm password <span class="text-danger">*</span></label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" class="form-control <?php echo !empty($confirm_passworderr) ? 'is-invalid' : ''; ?>" 
-                                   id="confirm_password" name="confirm_password" placeholder="Re-enter password" 
-                                   autocomplete="new-password" required>
-                        </div>
-                        <?php if (!empty($confirm_passworderr)): ?>
-                        <div class="invalid-feedback d-block"><?php echo htmlspecialchars($confirm_passworderr); ?></div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-                <div class="form-check mt-4">
-                    <input class="form-check-input <?php echo !empty($termserr) ? 'is-invalid' : ''; ?>" 
-                           type="checkbox" id="terms" name="terms"
-                           <?php echo isset($_POST['terms']) ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="terms">
-                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>.
-                    </label>
-                    <?php if (!empty($termserr)): ?>
-                    <div class="invalid-feedback d-block"><?php echo htmlspecialchars($termserr); ?></div>
-                    <?php endif; ?>
                 </div>
 
                 <div class="mt-4 d-flex gap-2">
                     <button type="submit" class="btn btn-primary" name="submit">
-                        <i class="fas fa-user-plus me-1"></i> Create User
+                        <i class="fas fa-user-edit me-1"></i> Update User
                     </button>
                     <a href="users.php" class="btn btn-outline-secondary">
                         <i class="fas fa-times me-1"></i> Cancel
